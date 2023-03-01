@@ -239,8 +239,8 @@
             "blt source:build:simplesamlphp-config"
         ],
         "sync-casbs": [
-            "drush -y sql:sync @default.prod @default.local",
-            "drush -y rsync @default.prod:%files @default.local:%files"
+            "drush -y sql:sync @default.dev @default.local",
+            "drush -y rsync @default.dev:%files @default.local:%files"
         ]
     },
     "autoload": {

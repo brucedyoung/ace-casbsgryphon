@@ -1,6 +1,6 @@
-# ACE SOE Gryphon
+# ACE CASBS Gryphon
 
-This stack is based on the ace-gryphon stack, except it uses `su-soe/engineering_profile` as its profile.
+This stack is based on the ace-gryphon stack, but it is customized for CASBS
 
 ---
 # Setup Local Environment - Lando
@@ -8,15 +8,15 @@ This stack is based on the ace-gryphon stack, except it uses `su-soe/engineering
 1. Clone this repository somewhere on your local system.
 2. Change directory into the location where you cloned the repository.
 3. Run `./lando/setup_lando.sh`
-4. Run `lando composer sync-soe`.  This will sync the Engineering database and files to your local system.  The sync comes from the Stage server.
+4. Run `lando composer sync-casbs`.  This will sync the database and files to your local system.  The sync comes from the Dev server.
 
 If using lando, prefix any `blt` commands with `lando`, e.g., `lando blt drupal:install`.  The same applies to composer commands.
 
 ### Lando local drush aliases
 
-The Engineering site is `@default` -- e.g, `@default.local, @default.dev, @default.test`
+The CASBS site is `@default` -- e.g, `@default.local, @default.dev, @default.test`
 
-So, for instance, to clear the caches on your local copy of VPGE:
+So, for instance, to clear the caches on your local copy of CASBS:
 ```
 lando drush -y @default.local cr
 ```
