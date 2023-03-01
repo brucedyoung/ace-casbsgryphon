@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * stanford_media.install
+ */
+
+/**
+ * Removed 9.0.0.
+ */
+function stanford_media_update_8220() {
+  // Removed 9.0.0.
+}

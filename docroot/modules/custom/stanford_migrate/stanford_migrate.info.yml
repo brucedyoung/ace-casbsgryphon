@@ -1,0 +1,13 @@
+name: 'Stanford Migrate'
+description: 'Adds more functionality to migrate and migrate plus modules'
+type: module
+core_version_requirement: ^9 || ^10
+package: 'Stanford'
+version: 8.4.2
+dependencies:
+  - drupal:migrate
+  - empty_fields:empty_fields
+  - migrate_plus:migrate_plus
+  - migrate_tools:migrate_tools
+  - readonly_field_widget:readonly_field_widget
+  - ultimate_cron:ultimate_cron

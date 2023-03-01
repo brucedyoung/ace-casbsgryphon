@@ -1,0 +1,4 @@
+services:
+  plugin.manager.stanford_actions_field_clone:
+    class: Drupal\stanford_actions\Plugin\FieldCloneManager
+    parent: default_plugin_manager

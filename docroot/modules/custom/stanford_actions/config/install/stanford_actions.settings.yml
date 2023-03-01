@@ -1,0 +1,5 @@
+actions:
+  node_clone_action:
+    clone_entities:
+      - paragraph
+      - paragraph_row

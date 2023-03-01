@@ -1,0 +1,12 @@
+project:
+  local:
+    hostname: localhost
+    protocol: http
+  machine_name: soegryphon
+  human_name: soegryphon
+drush:
+  aliases:
+    local: soegryphon.local
+    remote: soegryphon.dev
+drupal:
+  db: {  }
