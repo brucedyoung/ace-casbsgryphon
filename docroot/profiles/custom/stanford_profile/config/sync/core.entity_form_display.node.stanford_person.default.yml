@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.stanford_person.body
     - field.field.node.stanford_person.layout_builder__layout
     - field.field.node.stanford_person.stanford_intranet__access
+    - field.field.node.stanford_person.su_casbs_person_id
     - field.field.node.stanford_person.su_metatags
     - field.field.node.stanford_person.su_person_academic_appt
     - field.field.node.stanford_person.su_person_admin_appts
@@ -171,6 +172,13 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  su_casbs_person_id:
+    type: number
+    weight: 53
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   su_metatags:
     type: metatag_firehose
