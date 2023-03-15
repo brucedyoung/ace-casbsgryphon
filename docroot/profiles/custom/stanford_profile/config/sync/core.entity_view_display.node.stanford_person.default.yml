@@ -7,6 +7,22 @@ dependencies:
     - field.field.node.stanford_person.body
     - field.field.node.stanford_person.layout_builder__layout
     - field.field.node.stanford_person.stanford_intranet__access
+    - field.field.node.stanford_person.su_casbs_cs_year
+    - field.field.node.stanford_person.su_casbs_current_affiliation
+    - field.field.node.stanford_person.su_casbs_faculty_fellow_year
+    - field.field.node.stanford_person.su_casbs_feature_people
+    - field.field.node.stanford_person.su_casbs_feature_people_text
+    - field.field.node.stanford_person.su_casbs_fellowship_affili
+    - field.field.node.stanford_person.su_casbs_fellowship_year
+    - field.field.node.stanford_person.su_casbs_field_discipline
+    - field.field.node.stanford_person.su_casbs_person_bio
+    - field.field.node.stanford_person.su_casbs_person_book_links
+    - field.field.node.stanford_person.su_casbs_person_id
+    - field.field.node.stanford_person.su_casbs_person_journal_links
+    - field.field.node.stanford_person.su_casbs_practitioner_year
+    - field.field.node.stanford_person.su_casbs_profile_picture
+    - field.field.node.stanford_person.su_casbs_ra_year
+    - field.field.node.stanford_person.su_casbs_visiting_scholar_year
     - field.field.node.stanford_person.su_metatags
     - field.field.node.stanford_person.su_person_academic_appt
     - field.field.node.stanford_person.su_person_admin_appts
@@ -38,6 +54,7 @@ dependencies:
     - views.view.stanford_publications
   module:
     - entity_reference_revisions
+    - image
     - jumpstart_ui
     - layout_builder
     - layout_builder_restrictions
@@ -248,6 +265,244 @@ third_party_settings:
                   field_formatter_class:
                     class: ''
             weight: 1
+            additional: {  }
+          d69f9571-19ad-4732-aeb0-abc445b079da:
+            uuid: d69f9571-19ad-4732-aeb0-abc445b079da
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_person_book_links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          a396af0e-0034-42a9-94b8-8744e157c175:
+            uuid: a396af0e-0034-42a9-94b8-8744e157c175
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_person_journal_links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          1cab0e05-0960-4b0e-83cf-8e42c26a0c56:
+            uuid: 1cab0e05-0960-4b0e-83cf-8e42c26a0c56
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_person_bio'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          e71c6641-8871-4ba8-978e-32bc43603491:
+            uuid: e71c6641-8871-4ba8-978e-32bc43603491
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_cs_year'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          aa06bafb-673f-4302-a7f2-01318f070942:
+            uuid: aa06bafb-673f-4302-a7f2-01318f070942
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_current_affiliation'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          3c7a5621-2806-4572-9c86-0ad5044841d6:
+            uuid: 3c7a5621-2806-4572-9c86-0ad5044841d6
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_field_discipline'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          9fd1c5fc-eeda-42c7-bf98-47ccbc3e4365:
+            uuid: 9fd1c5fc-eeda-42c7-bf98-47ccbc3e4365
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_faculty_fellow_year'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          622687d0-5315-48c9-8975-a4d4c06030c2:
+            uuid: 622687d0-5315-48c9-8975-a4d4c06030c2
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_feature_people'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: boolean
+                label: above
+                settings:
+                  format: default
+                  format_custom_false: ''
+                  format_custom_true: ''
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
+          7416b869-2ea1-45ab-8f97-599ad443b429:
+            uuid: 7416b869-2ea1-45ab-8f97-599ad443b429
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_fellowship_affili'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 8
+            additional: {  }
+          63db56cf-efbb-4ea4-90fc-51583d074d1e:
+            uuid: 63db56cf-efbb-4ea4-90fc-51583d074d1e
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_fellowship_year'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 9
+            additional: {  }
+          989c551d-9610-48b4-b7a5-d43e58873f6b:
+            uuid: 989c551d-9610-48b4-b7a5-d43e58873f6b
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_feature_people_text'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 10
+            additional: {  }
+          776cfd87-0ce2-42a4-b5f4-f2344e36adef:
+            uuid: 776cfd87-0ce2-42a4-b5f4-f2344e36adef
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_practitioner_year'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 11
+            additional: {  }
+          a5fbe552-76b0-425d-ad09-ccecf96e03ab:
+            uuid: a5fbe552-76b0-425d-ad09-ccecf96e03ab
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_profile_picture'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: image
+                label: above
+                settings:
+                  image_link: ''
+                  image_style: ''
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 12
+            additional: {  }
+          fe7cc313-100a-4a83-9c19-deb3b963c536:
+            uuid: fe7cc313-100a-4a83-9c19-deb3b963c536
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_ra_year'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 13
+            additional: {  }
+          38314b41-b8da-4725-90ec-99a42cd4abba:
+            uuid: 38314b41-b8da-4725-90ec-99a42cd4abba
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_visiting_scholar_year'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 14
             additional: {  }
         third_party_settings: {  }
       -
@@ -741,6 +996,133 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
+    region: content
+  su_casbs_cs_year:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 132
+    region: content
+  su_casbs_current_affiliation:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 133
+    region: content
+  su_casbs_faculty_fellow_year:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 135
+    region: content
+  su_casbs_feature_people:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 136
+    region: content
+  su_casbs_feature_people_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 139
+    region: content
+  su_casbs_fellowship_affili:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 137
+    region: content
+  su_casbs_fellowship_year:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 138
+    region: content
+  su_casbs_field_discipline:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 134
+    region: content
+  su_casbs_person_bio:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 131
+    region: content
+  su_casbs_person_book_links:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 129
+    region: content
+  su_casbs_person_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 128
+    region: content
+  su_casbs_person_journal_links:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 130
+    region: content
+  su_casbs_practitioner_year:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 140
+    region: content
+  su_casbs_profile_picture:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 141
+    region: content
+  su_casbs_ra_year:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 142
+    region: content
+  su_casbs_visiting_scholar_year:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 143
     region: content
   su_person_affiliations:
     type: link

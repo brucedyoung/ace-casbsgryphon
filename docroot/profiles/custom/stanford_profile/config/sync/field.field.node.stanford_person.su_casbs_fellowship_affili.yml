@@ -1,0 +1,25 @@
+uuid: 27549969-a3fc-4300-bf15-f5d935a4b394
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_casbs_fellowship_affili
+    - node.type.stanford_person
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.stanford_person.su_casbs_fellowship_affili
+field_name: su_casbs_fellowship_affili
+entity_type: node
+bundle: stanford_person
+label: casbs_fellowship_affiliation
+description: fellowship_affiliation
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text
