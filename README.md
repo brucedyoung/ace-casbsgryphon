@@ -5,10 +5,33 @@ This stack is based on the ace-gryphon stack, but it is customized for CASBS
 ---
 # Setup Local Environment - Lando
 
+The easiest way to set up a local development environment is going to be using Lando and Docker in a linux-like environment.  If you are setting this up on a fresh machine, with none of the prerequisites present, it may take you a little time for the initial setup, but once the prerequisites are in place, you should be able to set up the CASBS site locally in less than 20 minutes.
+
+## Prerequisites
+
+### Linux/MacOS
+
+1. Set up Docker on your distro of choice.  Instructions for installing Docker in linux [can be found here](https://docs.docker.com/desktop/linux/install/), and these are [the MacOS instructions.](https://docs.docker.com/desktop/mac/install/)
+2. Set up Lando on your distro of choice.  Instructions for installing Lando in linux [can be found here](https://docs.lando.dev/getting-started/installation.html#linux), and these are [the MacOS instructions.](https://docs.lando.dev/getting-started/installation.html#macos)
+
+### Windows/WSL
+
+Because Docker works best with Windows Subsystem for Linux V.2, we suggest you proceed that way.
+1. [Install Windows Subsystem for Linux V.2](https://docs.microsoft.com/en-us/windows/wsl/install)
+2. [Install Docker Desktop for Windows, and enable the WSL2 extensions.](https://docs.docker.com/desktop/windows/wsl/)
+3. [Install Docker for linux in your WSL2 environment.](https://docs.docker.com/desktop/linux/install/ubuntu/)
+4. Install Lando for linux in your WSL2 environment.  [Instructions can be found here.](https://docs.lando.dev/getting-started/installation.html#linux)
+
+No other prerequisites are necessary except Git, though you may find it helpful to have PHP 8.1+, and Composer 2 installed locally on your system.  Once you have met the prerequisites, you can proceed with the installation.
+
+## Installation:
+
 1. Clone this repository somewhere on your local system.
 2. Change directory into the location where you cloned the repository.
 3. Run `./lando/setup_lando.sh`
 4. Run `lando composer sync-casbs`.  This will sync the database and files to your local system.  The sync comes from the Dev server.
+5. Run `lando drush cr` to clear the caches for the updated database.  If you don't do this step, you may encounter an error when you try to load the site in a browser.
+6. Your application should be available locally at http://casbs.lndo.site/
 
 If using lando, prefix any `blt` commands with `lando`, e.g., `lando blt drupal:install`.  The same applies to composer commands.
 
@@ -129,7 +152,9 @@ BLT uses a number of configuration (`.yml` or `.json`) files to define and custo
 * `drush/sites` (contains Drush aliases for this project)
 * `composer.json` (includes required components, including Drupal Modules, for this project)
 
-## Resources
+## Helpful links and resources
 
-* GitHub - https://github.com/SU-SWS/ace-gryphon
-* Acquia Cloud subscription - https://cloud.acquia.com/app/develop/applications/8449683b-500e-4728-b70a-5f69d9e8a61a
+* SWS devguide: https://sws-devguide.stanford.edu/
+* Decanter styleguide: https://decanter.stanford.edu/
+* Stanford Identity guide: https://identity.stanford.edu/
+
