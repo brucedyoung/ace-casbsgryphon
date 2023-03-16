@@ -55,16 +55,16 @@ filters:
   filter_html:
     id: filter_html
     provider: filter
-    status: true
+    status: false
     weight: -50
     settings:
-      allowed_html: '<br> <p class id> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <a class aria-label hreflang data-entity-substitution data-entity-type data-entity-uuid title name href> <b> <cite> <dt> <pre class> <code data-* class> <dl class> <dd class> <div id class> <i class> <aside class> <img src alt title class> <abbr id title> <span id class> <blockquote cite> <ul id type class> <ol id type class start> <li id class> <table id class> <tbody class> <th scope id class rowspan colspan> <td id class rowspan colspan> <tr id> <drupal-media data-* title alt> <strong> <em> <s> <sub> <sup> <hr> <thead> <tfoot> <caption>'
+      allowed_html: '<b> <cite> <dt> <pre class> <code data-* class> <dl class> <dd class> <div id class> <i class> <aside class> <img src alt title class> <abbr id title> <span id class> <blockquote cite> <ul id type class> <ol id type class> <li id class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <table id class> <tbody class> <th scope id class> <td id class> <tr id> <drupal-media data-* title> <a aria-label hreflang data-entity-substitution data-entity-type data-entity-uuid title name class> <p id class>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
-    status: true
+    status: false
     weight: -43
     settings: {  }
   filter_autop:
