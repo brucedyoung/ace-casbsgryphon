@@ -1,0 +1,25 @@
+uuid: d98540ae-9897-4473-ab56-c56560c940d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_casbs_book_publisher_loc
+    - node.type.casbs_book
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.casbs_book.su_casbs_book_publisher_loc
+field_name: su_casbs_book_publisher_loc
+entity_type: node
+bundle: casbs_book
+label: casbs_book_publisher_location
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

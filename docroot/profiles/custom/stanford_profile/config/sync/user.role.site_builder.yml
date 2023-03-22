@@ -15,6 +15,7 @@ dependencies:
     - media.type.image
     - media.type.stanford_gallery_images
     - media.type.video
+    - node.type.datatables_data
     - node.type.stanford_course
     - node.type.stanford_event
     - node.type.stanford_event_series
@@ -29,6 +30,13 @@ dependencies:
     - taxonomy.vocabulary.stanford_news_topics
     - taxonomy.vocabulary.stanford_person_types
     - taxonomy.vocabulary.stanford_publication_topics
+    - taxonomy.vocabulary.su_casbs_consulting_scholar_year
+    - taxonomy.vocabulary.su_casbs_faculty_fellow_year
+    - taxonomy.vocabulary.su_casbs_fellowship_year
+    - taxonomy.vocabulary.su_casbs_people_type
+    - taxonomy.vocabulary.su_casbs_practitioner_year
+    - taxonomy.vocabulary.su_casbs_research_affiliate_year
+    - taxonomy.vocabulary.su_casbs_visiting_scholar_year
     - taxonomy.vocabulary.su_shared_tags
   module:
     - block
@@ -337,3 +345,33 @@ permissions:
   - 'view stanford_publication revisions'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
+  - 'create datatables_data content'
+  - 'delete any datatables_data content'
+  - 'delete own datatables_data content'
+  - 'delete datatables_data revisions'
+  - 'edit any datatables_data content'
+  - 'edit own datatables_data content'
+  - 'revert datatables_data revisions'
+  - 'view datatables_data revisions'
+  - 'create terms in su_casbs_consulting_scholar_year'
+  - 'create terms in su_casbs_faculty_fellow_year'
+  - 'create terms in su_casbs_fellowship_year'
+  - 'create terms in su_casbs_people_type'
+  - 'create terms in su_casbs_practitioner_year'
+  - 'create terms in su_casbs_research_affiliate_year'
+  - 'create terms in su_casbs_visiting_scholar_year'
+  - 'delete terms in su_casbs_consulting_scholar_year'
+  - 'delete terms in su_casbs_faculty_fellow_year'
+  - 'delete terms in su_casbs_fellowship_year'
+  - 'delete terms in su_casbs_people_type'
+  - 'delete terms in su_casbs_practitioner_year'
+  - 'delete terms in su_casbs_research_affiliate_year'
+  - 'delete terms in su_casbs_visiting_scholar_year'
+  - 'edit terms in su_casbs_consulting_scholar_year'
+  - 'edit terms in su_casbs_faculty_fellow_year'
+  - 'edit terms in su_casbs_fellowship_year'
+  - 'edit terms in su_casbs_people_type'
+  - 'edit terms in su_casbs_practitioner_year'
+  - 'edit terms in su_casbs_research_affiliate_year'
+  - 'edit terms in su_casbs_visiting_scholar_year'
+  - 'view any unpublished datatables_data content'
