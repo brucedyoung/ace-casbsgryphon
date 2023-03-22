@@ -31,7 +31,7 @@ third_party_settings:
     unpublish_revision: false
 name: Person
 type: stanford_person
-description: "Stanford Person type with bio and supporting information. Content-type for syncing with CAP data.\r\nFor CASBS - few of the people will be Stanford people"
+description: 'Stanford Person type with bio and supporting information. Content-type for syncing with CAP data.'
 help: ''
 new_revision: true
 preview_mode: 0

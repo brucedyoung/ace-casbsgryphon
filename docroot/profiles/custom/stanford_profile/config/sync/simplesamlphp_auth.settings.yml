@@ -17,6 +17,8 @@ allow:
   set_drupal_pwd: false
   default_login: true
   default_login_roles:
+    administrator: administrator
+    site_developer: site_developer
     decoupled_site_users: decoupled_site_users
   default_login_users: '1'
 logout_goto_url: ''
