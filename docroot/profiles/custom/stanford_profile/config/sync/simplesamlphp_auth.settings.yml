@@ -12,7 +12,7 @@ header_no_cache: true
 role:
   population: 'administrator:eduPersonEntitlement,=,uit:sws'
   eval_every_time: 2
-register_users: true
+register_users: false
 allow:
   set_drupal_pwd: true
   default_login: true
