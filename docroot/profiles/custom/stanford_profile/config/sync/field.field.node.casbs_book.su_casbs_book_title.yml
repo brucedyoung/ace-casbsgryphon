@@ -15,7 +15,7 @@ id: node.casbs_book.su_casbs_book_title
 field_name: su_casbs_book_title
 entity_type: node
 bundle: casbs_book
-label: casbs_book_title
+label: 'Book Title'
 description: ''
 required: false
 translatable: false

@@ -15,7 +15,7 @@ id: node.casbs_book.su_casbs_book_publisher_loc
 field_name: su_casbs_book_publisher_loc
 entity_type: node
 bundle: casbs_book
-label: casbs_book_publisher_location
+label: 'Publisher Location'
 description: ''
 required: false
 translatable: false

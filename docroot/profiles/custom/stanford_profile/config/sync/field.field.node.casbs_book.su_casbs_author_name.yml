@@ -15,7 +15,7 @@ id: node.casbs_book.su_casbs_author_name
 field_name: su_casbs_author_name
 entity_type: node
 bundle: casbs_book
-label: casbs_author_name
+label: Author(s)
 description: 'CASBS Author Name(s) - string of CASBS authors'
 required: false
 translatable: false
