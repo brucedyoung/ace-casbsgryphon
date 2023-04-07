@@ -17,6 +17,7 @@ dependencies:
     - system.menu.main
   module:
     - entity_reference_revisions
+    - field_group
     - jumpstart_ui
     - layout_builder
     - layout_builder_restrictions
@@ -105,9 +106,9 @@ third_party_settings:
               follow_parent: child
               level: 2
               depth: 0
+              expand: true
               parent: 'main:'
               suggestion: secondary_nav
-              expand: true
             weight: 0
             additional: {  }
           c40ac234-fff7-4c9d-8a34-03fb9d335617:
@@ -155,8 +156,6 @@ third_party_settings:
       - 'Content fields'
       - 'Custom block types'
       - 'Custom blocks'
-      - Devel
-      - 'Devel PHP'
       - 'Events Lists (Views)'
       - Forms
       - Help
@@ -167,11 +166,14 @@ third_party_settings:
       - 'News Lists (Views)'
       - 'PDB React'
       - 'People Lists (Views)'
+      - 'Policy (Views)'
       - Printable
       - 'Publication (Views)'
       - React
+      - 'SimpleSAMLphp Authentication'
       - 'Stanford News'
       - 'Stanford Profile Helper'
+      - 'Stanford SimpleSAML PHP'
       - System
       - 'Taxonomy Terms (Views)'
       - Views
@@ -252,11 +254,33 @@ third_party_settings:
         - Forms
         - Help
         - 'Lists (Views)'
+        - 'Policy (Views)'
         - Printable
         - React
+        - 'SimpleSAMLphp Authentication'
         - 'Stanford Profile Helper'
+        - 'Stanford SimpleSAML PHP'
         - 'Taxonomy Terms (Views)'
         - Views
+  field_group:
+    group_javascript:
+      children: {  }
+      label: javascript
+      parent_name: ''
+      region: hidden
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
 id: node.stanford_page.default
 targetEntityType: node
 bundle: stanford_page
