@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.stanford_person.su_casbs_faculty_fellow_year
     - field.field.node.stanford_person.su_casbs_feature_people
     - field.field.node.stanford_person.su_casbs_feature_people_text
-    - field.field.node.stanford_person.su_casbs_fellowship_year
     - field.field.node.stanford_person.su_casbs_field_discipline
     - field.field.node.stanford_person.su_casbs_person_bio
     - field.field.node.stanford_person.su_casbs_person_book_links
@@ -313,31 +312,6 @@ third_party_settings:
                   field_formatter_class:
                     class: ''
             weight: 0
-            additional: {  }
-          63db56cf-efbb-4ea4-90fc-51583d074d1e:
-            uuid: 63db56cf-efbb-4ea4-90fc-51583d074d1e
-            region: quote_long_title
-            configuration:
-              id: 'field_block:node:stanford_person:su_casbs_fellowship_year'
-              label: Fellowship
-              label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_list_label_class
-                label: hidden
-                settings:
-                  link: false
-                  class: ''
-                  list_type: ul
-                third_party_settings:
-                  empty_fields:
-                    handler: ''
-                  field_formatter_class:
-                    class: ''
-            weight: 3
             additional: {  }
           9fd1c5fc-eeda-42c7-bf98-47ccbc3e4365:
             uuid: 9fd1c5fc-eeda-42c7-bf98-47ccbc3e4365
@@ -1043,14 +1017,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 139
-    region: content
-  su_casbs_fellowship_year:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 138
     region: content
   su_casbs_field_discipline:
     type: text_default
