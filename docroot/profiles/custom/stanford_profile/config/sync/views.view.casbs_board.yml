@@ -481,6 +481,7 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      display_comment: 'Using mailcode to sort display'
       display_extenders: {  }
       block_description: casbs_board
       block_category: 'Basic Page Type Lists (Views)'

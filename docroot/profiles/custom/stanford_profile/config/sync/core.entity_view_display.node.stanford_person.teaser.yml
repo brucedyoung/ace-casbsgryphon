@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.stanford_person.su_casbs_faculty_fellow_year
     - field.field.node.stanford_person.su_casbs_feature_people
     - field.field.node.stanford_person.su_casbs_feature_people_text
-    - field.field.node.stanford_person.su_casbs_fellowship_year
     - field.field.node.stanford_person.su_casbs_field_discipline
     - field.field.node.stanford_person.su_casbs_person_bio
     - field.field.node.stanford_person.su_casbs_person_book_links
@@ -81,7 +80,6 @@ hidden:
   su_casbs_faculty_fellow_year: true
   su_casbs_feature_people: true
   su_casbs_feature_people_text: true
-  su_casbs_fellowship_year: true
   su_casbs_field_discipline: true
   su_casbs_person_bio: true
   su_casbs_person_book_links: true
