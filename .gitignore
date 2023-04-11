@@ -57,7 +57,6 @@ docroot/sites/*/private
 docroot/sites/simpletest
 /artifacts
 keys
-drush/sites
 docroot/.htaccess.orig
 docroot/.htaccess.rej
 LocalCommands.php
