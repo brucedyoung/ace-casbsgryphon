@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.stanford_person.su_casbs_faculty_fellow_year
     - field.field.node.stanford_person.su_casbs_feature_people
     - field.field.node.stanford_person.su_casbs_feature_people_text
+    - field.field.node.stanford_person.su_casbs_fellow_year
     - field.field.node.stanford_person.su_casbs_field_discipline
     - field.field.node.stanford_person.su_casbs_person_bio
     - field.field.node.stanford_person.su_casbs_person_book_links
@@ -496,6 +497,22 @@ third_party_settings:
                   field_formatter_class:
                     class: ''
             weight: 1
+            additional: {  }
+          dab65726-84f4-4ca5-911a-c5f99c983652:
+            uuid: dab65726-84f4-4ca5-911a-c5f99c983652
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_casbs_fellow_year'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 5
             additional: {  }
         third_party_settings: {  }
       -
@@ -1017,6 +1034,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 139
+    region: content
+  su_casbs_fellow_year:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 145
     region: content
   su_casbs_field_discipline:
     type: text_default
