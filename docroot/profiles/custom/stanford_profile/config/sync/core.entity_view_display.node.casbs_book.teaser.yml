@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.casbs_book.su_casbs_book_publisher
     - field.field.node.casbs_book.su_casbs_book_publisher_loc
     - field.field.node.casbs_book.su_casbs_book_title
+    - field.field.node.casbs_book.su_casbs_recent_works
     - node.type.casbs_book
   module:
     - text
@@ -45,3 +46,4 @@ hidden:
   su_casbs_book_publisher: true
   su_casbs_book_publisher_loc: true
   su_casbs_book_title: true
+  su_casbs_recent_works: true
