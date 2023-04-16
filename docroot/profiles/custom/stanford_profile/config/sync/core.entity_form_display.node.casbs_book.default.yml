@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.casbs_book.su_casbs_book_publisher
     - field.field.node.casbs_book.su_casbs_book_publisher_loc
     - field.field.node.casbs_book.su_casbs_book_title
+    - field.field.node.casbs_book.su_casbs_recent_works
     - image.style.thumbnail
     - node.type.casbs_book
   module:
@@ -128,6 +129,13 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  su_casbs_recent_works:
+    type: boolean_checkbox
+    weight: 130
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
