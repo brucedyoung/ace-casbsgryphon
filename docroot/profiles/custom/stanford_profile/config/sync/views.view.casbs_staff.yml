@@ -9,6 +9,7 @@ dependencies:
     - field.storage.node.su_casbs_profile_picture
     - field.storage.node.su_person_email
     - field.storage.node.su_person_telephone
+    - image.style.medium
     - taxonomy.vocabulary.su_casbs_people_type
   content:
     - 'taxonomy_term:su_casbs_people_type:5a6dfdf0-d508-44e0-ab03-71189b4aa58a'
@@ -87,8 +88,8 @@ display:
           type: image_class
           settings:
             image_link: ''
-            image_style: ''
-            class: 'float: left;'
+            image_style: medium
+            class: '.image-style-responsive-medium {float: left;       margin: 5px; }'
             image_loading:
               attribute: lazy
           group_column: ''
