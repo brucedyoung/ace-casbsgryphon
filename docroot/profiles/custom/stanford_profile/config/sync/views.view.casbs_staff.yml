@@ -562,10 +562,10 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        su_person_mail_code_value:
-          id: su_person_mail_code_value
-          table: node__su_person_mail_code
-          field: su_person_mail_code_value
+        su_casbs_custom_order_value:
+          id: su_casbs_custom_order_value
+          table: node__su_casbs_custom_order
+          field: su_casbs_custom_order_value
           relationship: none
           group_type: group
           admin_label: ''
