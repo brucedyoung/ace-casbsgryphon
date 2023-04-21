@@ -161,10 +161,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        su_casbs_current_affiliation:
-          id: su_casbs_current_affiliation
-          table: node__su_casbs_current_affiliation
-          field: su_casbs_current_affiliation
+        su_casbs_field_discipline:
+          id: su_casbs_field_discipline
+          table: node__su_casbs_field_discipline
+          field: su_casbs_field_discipline
           relationship: none
           group_type: group
           admin_label: ''
@@ -223,10 +223,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        su_casbs_field_discipline:
-          id: su_casbs_field_discipline
-          table: node__su_casbs_field_discipline
-          field: su_casbs_field_discipline
+        su_casbs_current_affiliation:
+          id: su_casbs_current_affiliation
+          table: node__su_casbs_current_affiliation
+          field: su_casbs_current_affiliation
           relationship: none
           group_type: group
           admin_label: ''

@@ -7,6 +7,7 @@ dependencies:
   module:
     - image
     - node
+    - stanford_fields
     - user
 id: casbs_book_mosaic
 label: casbs_book_mosaic
@@ -216,10 +217,10 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.su_casbs_book_cover'
-  block_1:
-    id: block_1
-    display_title: Block
-    display_plugin: block
+  viewfield_block_1:
+    id: viewfield_block_1
+    display_title: 'View Field Block'
+    display_plugin: viewfield_block
     position: 1
     display_options:
       display_extenders: {  }

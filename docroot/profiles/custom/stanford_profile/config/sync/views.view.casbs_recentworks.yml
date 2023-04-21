@@ -12,6 +12,7 @@ dependencies:
   module:
     - image
     - node
+    - stanford_fields
     - text
     - user
 id: casbs_recentworks
@@ -68,12 +69,12 @@ display:
             preserve_tags: ''
             html: false
           element_type: div
-          element_class: 'media image field-media-image fieldset layout-column'
+          element_class: 'media image field-media-image'
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: div
-          element_wrapper_class: ''
+          element_wrapper_class: 'align-left media-entity-wrapper image'
           element_default_classes: true
           empty: ''
           hide_empty: false
@@ -133,11 +134,11 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: h3
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -148,7 +149,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -579,10 +580,10 @@ display:
         - 'config:field.storage.node.su_casbs_book_cover'
         - 'config:field.storage.node.su_casbs_book_publish_year'
         - 'config:field.storage.node.su_casbs_book_publisher'
-  block_1:
-    id: block_1
-    display_title: Block
-    display_plugin: block
+  viewfield_block_1:
+    id: viewfield_block_1
+    display_title: 'View Field Block'
+    display_plugin: viewfield_block
     position: 1
     display_options:
       display_extenders: {  }
