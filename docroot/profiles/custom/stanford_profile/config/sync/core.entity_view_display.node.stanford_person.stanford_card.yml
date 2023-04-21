@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.stanford_person.stanford_intranet__access
     - field.field.node.stanford_person.su_casbs_cs_year
     - field.field.node.stanford_person.su_casbs_current_affiliation
+    - field.field.node.stanford_person.su_casbs_custom_order
     - field.field.node.stanford_person.su_casbs_faculty_fellow_year
     - field.field.node.stanford_person.su_casbs_feature_people
     - field.field.node.stanford_person.su_casbs_feature_people_text
@@ -117,6 +118,7 @@ hidden:
   stanford_intranet__access: true
   su_casbs_cs_year: true
   su_casbs_current_affiliation: true
+  su_casbs_custom_order: true
   su_casbs_faculty_fellow_year: true
   su_casbs_feature_people: true
   su_casbs_feature_people_text: true
