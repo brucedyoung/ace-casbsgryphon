@@ -142,19 +142,16 @@ display:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-        su_casbs_book_cover_width:
-          id: su_casbs_book_cover_width
+        su_casbs_book_cover_alt:
+          id: su_casbs_book_cover_alt
           table: node__su_casbs_book_cover
-          field: su_casbs_book_cover_width
+          field: su_casbs_book_cover_alt
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: numeric
+          plugin_id: string
           operator: '!='
-          value:
-            min: ''
-            max: ''
-            value: '67'
+          value: no_cover
           group: 1
           exposed: false
           expose:
@@ -171,8 +168,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
             placeholder: ''
           is_grouped: false
           group_info:

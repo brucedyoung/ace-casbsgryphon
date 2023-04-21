@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.stanford_person.stanford_intranet__access
     - field.field.node.stanford_person.su_casbs_cs_year
     - field.field.node.stanford_person.su_casbs_current_affiliation
+    - field.field.node.stanford_person.su_casbs_custom_order
     - field.field.node.stanford_person.su_casbs_faculty_fellow_year
     - field.field.node.stanford_person.su_casbs_feature_people
     - field.field.node.stanford_person.su_casbs_feature_people_text
@@ -206,6 +207,13 @@ content:
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  su_casbs_custom_order:
+    type: number
+    weight: 71
+    region: content
+    settings:
       placeholder: ''
     third_party_settings: {  }
   su_casbs_faculty_fellow_year:
