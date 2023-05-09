@@ -1,15 +1,17 @@
 uuid: fae5389e-fa00-446b-9d31-41ce019f9cba
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - focal_point
 name: su_news_list
 label: 'News List (280x132)'
 effects:
-  a71f6268-bf7b-415f-a92e-58ed5a5bd045:
-    uuid: a71f6268-bf7b-415f-a92e-58ed5a5bd045
-    id: image_scale_and_crop
-    weight: 1
+  e557182a-4014-491f-a8ff-1bbded817cf0:
+    uuid: e557182a-4014-491f-a8ff-1bbded817cf0
+    id: focal_point_scale_and_crop
+    weight: 2
     data:
       width: 280
       height: 132
-      anchor: center-center
+      crop_type: focal_point
