@@ -18,6 +18,7 @@ settings:
       - horizontalLine
       - style
       - heading
+      - removeFormat
       - '|'
       - link
       - '|'
@@ -124,8 +125,7 @@ settings:
     media_media:
       allow_view_mode_override: true
     linkit_extension:
-      linkit_enabled: true
-      linkit_profile: default
+      linkit_enabled: false
 image_upload:
   status: false
   scheme: public
