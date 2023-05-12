@@ -18,9 +18,9 @@ dependencies:
     - user
     - views_taxonomy_term_name_depth
 id: casbs_current_fellows
-label: casbs_current_fellows
+label: 'CASBS People'
 module: views
-description: ''
+description: 'CASBS Custom People Views'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -121,6 +121,19 @@ display:
           id: su_person_last_name_value
           table: node__su_person_last_name
           field: su_person_last_name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+        su_person_first_name_value:
+          id: su_person_first_name_value
+          table: node__su_person_first_name
+          field: su_person_first_name_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -242,7 +255,7 @@ display:
       tags: {  }
   attachment_1:
     id: attachment_1
-    display_title: 'Jump Menu'
+    display_title: 'Current Fellows Jump Menu'
     display_plugin: attachment
     position: 2
     display_options:
@@ -414,7 +427,7 @@ display:
       tags: {  }
   viewfield_block_1:
     id: viewfield_block_1
-    display_title: 'View Field Block'
+    display_title: 'Current Fellows with Jump Menu (Filter by Year)'
     display_plugin: viewfield_block
     position: 2
     display_options:
@@ -826,6 +839,7 @@ display:
         fields: false
       block_description: 'Current Fellows'
       block_category: 'Basic Page Type Lists (Views)'
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
