@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.stanford_html
     - filter.format.stanford_minimal_html
   module:
     - field_permissions
@@ -22,7 +21,6 @@ permissions:
   - 'access content'
   - 'access patterns page'
   - 'access shortcuts'
-  - 'use text format stanford_html'
   - 'use text format stanford_minimal_html'
   - 'view field_media_embeddable_code'
   - 'view media'

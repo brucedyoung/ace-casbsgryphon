@@ -9,6 +9,7 @@ dependencies:
     - core.entity_view_display.node.stanford_page.default
     - core.entity_view_display.node.stanford_person.default
     - core.entity_view_display.node.stanford_publication.default
+    - filter.format.stanford_html
     - media.type.embeddable
     - media.type.file
     - media.type.google_form
@@ -55,6 +56,7 @@ dependencies:
     - field_permissions
     - field_ui
     - file
+    - filter
     - image
     - layout_builder
     - media
@@ -343,6 +345,7 @@ permissions:
   - 'update any media'
   - 'update any stanford_component_block block content'
   - 'update media'
+  - 'use text format stanford_html'
   - 'use views bulk edit'
   - 'view all media revisions'
   - 'view all revisions'
