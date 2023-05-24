@@ -1,0 +1,25 @@
+.casbs-jumpmenu__item {
+    display:inline-block;
+  }
+
+  .casbs-person {
+    border-bottom: 10px 1px #000;
+  }
+
+  .casbs-person__image {
+    margin: 0 10px 10px 0;
+    display:inline-block;
+    float: left;
+  }
+
+  .casbs-person__discipline{
+    text-transform: lowercase;
+  }
+
+  .casbs-person__discipline::first-letter{
+    text-transform: uppercase;
+  }
+
+  .casbs-person__affiliation{
+    font-weight: bold
+  }
