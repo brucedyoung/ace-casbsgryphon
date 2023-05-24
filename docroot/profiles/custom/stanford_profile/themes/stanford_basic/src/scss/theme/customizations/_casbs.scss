@@ -2,13 +2,14 @@
     display:inline-block;
   }
 
-  .casbs-person {
-    border-bottom: 10px 1px #000;
+  .casbs-person,
+  .casbs-recent-work {
+    border-bottom: 10px solid #000;
   }
 
-  .casbs-person__image {
+  .casbs-person__image,
+  .casbs-recent-work__image {
     margin: 0 10px 10px 0;
-    display:inline-block;
     float: left;
   }
 
