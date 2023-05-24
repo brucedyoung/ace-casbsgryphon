@@ -17,7 +17,7 @@ dependencies:
     - text
     - user
 id: casbs_recentworks
-label: casbs_recentworks
+label: 'CASBS Recent Works'
 module: views
 description: ''
 tag: ''
@@ -30,7 +30,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: casbs_recentworks
+      title: 'Recent Works'
       fields:
         su_casbs_book_cover:
           id: su_casbs_book_cover
@@ -69,14 +69,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: div
-          element_class: 'media image field-media-image'
+          element_type: ''
+          element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: div
-          element_wrapper_class: 'align-left media-entity-wrapper image'
-          element_default_classes: true
+          element_wrapper_class: casbs-recent-work__image
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -615,6 +615,10 @@ display:
             group_items: {  }
       style:
         type: default
+        options:
+          grouping: {  }
+          row_class: casbs-recent-work
+          default_row_class: false
       row:
         type: fields
       query:
@@ -646,11 +650,12 @@ display:
         - 'config:field.storage.node.su_casbs_book_publisher'
   viewfield_block_1:
     id: viewfield_block_1
-    display_title: 'View Field Block'
+    display_title: 'Recent Works List'
     display_plugin: viewfield_block
     position: 1
     display_options:
       display_extenders: {  }
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:

@@ -16,7 +16,7 @@ dependencies:
     - text
     - user
 id: casbs_recentworks_mosaic
-label: casbs_recentworks_mosaic
+label: 'CASBS Recent Work Mosaic'
 module: views
 description: ''
 tag: ''
@@ -68,8 +68,8 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
-          element_class: ''
+          element_type: div
+          element_class: casbs-recent-work__image
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
@@ -543,7 +543,7 @@ display:
           alignment: horizontal
           row_class_custom: 'align-left media-entity-wrapper image'
           row_class_default: true
-          col_class_custom: ''
+          col_class_custom: casbs-recent-work
           col_class_default: true
       row:
         type: fields
@@ -564,6 +564,7 @@ display:
           query_tags: {  }
           contextual_filters_or: false
       relationships: {  }
+      css_class: casbs-mosaic
       header: {  }
       footer: {  }
       display_extenders: {  }

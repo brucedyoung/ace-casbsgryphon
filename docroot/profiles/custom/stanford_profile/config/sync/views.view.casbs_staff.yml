@@ -1,6 +1,6 @@
 uuid: 318092c1-a266-40be-9107-bca7c18cef0e
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.node.su_casbs_current_affiliation
