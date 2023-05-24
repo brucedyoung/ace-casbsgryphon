@@ -10,7 +10,7 @@ dependencies:
     - stanford_fields
     - user
 id: casbs_book_mosaic
-label: casbs_book_mosaic
+label: 'CASBS Book Mosaic'
 module: views
 description: ''
 tag: ''
@@ -62,14 +62,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
-          element_class: ''
+          element_type: div
+          element_class: casbs-book-cover
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -205,6 +205,7 @@ display:
           query_tags: {  }
           contextual_filters_or: false
       relationships: {  }
+      css_class: casbs-mosaic
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -219,12 +220,13 @@ display:
         - 'config:field.storage.node.su_casbs_book_cover'
   viewfield_block_1:
     id: viewfield_block_1
-    display_title: 'View Field Block'
+    display_title: 'CASBS Book Mosaic'
     display_plugin: viewfield_block
     position: 1
     display_options:
       display_extenders: {  }
       block_category: 'Basic Page Type Lists (Views)'
+      display_description: ''
     cache_metadata:
       max-age: 0
       contexts:
