@@ -4,20 +4,16 @@
 
   .casbs-person,
   .casbs-recent-work {
-    border-bottom: 10px solid #000;
+    margin-top: 40px;
   }
 
   .casbs-person__image,
   .casbs-recent-work__image {
-    margin: 0 10px 10px 0;
+    padding: 0.4em 1.5em 0 0;
     float: left;
   }
 
   .casbs-person__discipline{
-    text-transform: lowercase;
-  }
-
-  .casbs-person__discipline::first-letter{
     text-transform: uppercase;
   }
 
