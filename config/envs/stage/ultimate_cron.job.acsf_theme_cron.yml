@@ -1,0 +1,17 @@
+uuid: e7979294-74c9-41e7-9e69-8b334b9db865
+langcode: en
+status: true
+dependencies:
+  module:
+    - acsf_theme
+title: 'Default cron handler'
+id: acsf_theme_cron
+weight: 0
+module: acsf_theme
+callback: acsf_theme_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database
