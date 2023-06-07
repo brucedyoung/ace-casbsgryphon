@@ -677,19 +677,7 @@ display:
         fields: false
         arguments: false
         footer: false
-      relationships:
-        term_node_tid:
-          id: term_node_tid
-          table: node_field_data
-          field: term_node_tid
-          relationship: none
-          group_type: group
-          admin_label: term
-          entity_type: node
-          plugin_id: node_term_data
-          required: true
-          vids:
-            - su_casbs_people_type
+      relationships: {  }
       css_class: casbs-jumpmenu
       display_description: ''
       footer:
