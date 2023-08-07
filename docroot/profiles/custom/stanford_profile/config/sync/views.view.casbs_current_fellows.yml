@@ -1115,7 +1115,7 @@ display:
           click_sort_column: value
           type: text_default
           settings: {  }
-          group_column: value
+          group_column: entity_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
