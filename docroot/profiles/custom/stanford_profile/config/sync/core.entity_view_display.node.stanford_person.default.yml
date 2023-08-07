@@ -277,7 +277,7 @@ third_party_settings:
             configuration:
               id: 'field_block:node:stanford_person:su_casbs_current_affiliation'
               label: 'Current Affiliation'
-              label_display: visible
+              label_display: '0'
               provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
@@ -298,7 +298,7 @@ third_party_settings:
             region: quote_long_title
             configuration:
               id: 'field_block:node:stanford_person:su_casbs_faculty_fellow_year'
-              label: 'Faculty Fellow'
+              label: 'Faculty Fellow year'
               label_display: visible
               provider: layout_builder
               context_mapping:
@@ -323,7 +323,7 @@ third_party_settings:
             region: quote_long_title
             configuration:
               id: 'field_block:node:stanford_person:su_casbs_ra_year'
-              label: 'Research Affiliate'
+              label: 'Research Affiliate year'
               label_display: visible
               provider: layout_builder
               context_mapping:
@@ -348,7 +348,7 @@ third_party_settings:
             region: quote_long_title
             configuration:
               id: 'field_block:node:stanford_person:su_casbs_visiting_scholar_year'
-              label: 'Visiting Scholar'
+              label: 'Visiting Scholar year'
               label_display: visible
               provider: layout_builder
               context_mapping:
@@ -373,7 +373,7 @@ third_party_settings:
             region: quote_long_title
             configuration:
               id: 'field_block:node:stanford_person:su_casbs_cs_year'
-              label: 'Consulting Scholar'
+              label: 'Consulting Scholar year'
               label_display: visible
               provider: layout_builder
               context_mapping:
@@ -398,7 +398,7 @@ third_party_settings:
             region: quote_long_title
             configuration:
               id: 'field_block:node:stanford_person:su_casbs_practitioner_year'
-              label: Practitioner
+              label: 'Practitioner year'
               label_display: visible
               provider: layout_builder
               context_mapping:
@@ -467,7 +467,7 @@ third_party_settings:
             region: quote_long_title
             configuration:
               id: 'field_block:node:stanford_person:su_casbs_fellow_year'
-              label: Fellow
+              label: 'Fellowship year'
               label_display: visible
               provider: layout_builder
               context_mapping:
@@ -491,7 +491,7 @@ third_party_settings:
             configuration:
               id: 'field_block:node:stanford_person:su_casbs_field_discipline'
               label: Discipline
-              label_display: visible
+              label_display: '0'
               provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
