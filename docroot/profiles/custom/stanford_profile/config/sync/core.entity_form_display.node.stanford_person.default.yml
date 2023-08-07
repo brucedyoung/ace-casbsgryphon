@@ -258,7 +258,12 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      change_labels:
+        field_label_overwrite: '<nolabel>'
+      allowed_formats:
+        hide_help: '0'
+        hide_guidelines: '0'
   su_casbs_person_bio:
     type: text_textarea
     weight: 56
