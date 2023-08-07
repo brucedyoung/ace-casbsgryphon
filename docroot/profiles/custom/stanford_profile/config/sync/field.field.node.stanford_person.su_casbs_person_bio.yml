@@ -10,7 +10,8 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
-    allowed_formats: {  }
+    allowed_formats:
+      - stanford_html
 id: node.stanford_person.su_casbs_person_bio
 field_name: su_casbs_person_bio
 entity_type: node
