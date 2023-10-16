@@ -42,6 +42,14 @@ class PolicyCest {
     $I->logInWithRole('contributor');
     $I->amOnPage('/node/add/stanford_policy');
     $I->cantSee('Create a new book');
+    // D8CORE-4551 - removed create policy permission for contributors
+    $I->canSee('Access Denied');
+    $book = $I->createEntity([
+      'type' => 'stanford_policy',
+      'su_policy_title' => $this->faker->words(2, TRUE) . '-baz-foo',
+      'su_policy_auto_prefix' => 1,
+    ]);
+    $I->amOnPage($book->toUrl('edit-form')->toString());
     // This indicates they can add to an existing book.
     $I->canSeeOptionIsSelected('Book', '- None -');
     $I->cantSee('Policy Prefix');
@@ -63,7 +71,7 @@ class PolicyCest {
   /**
    * Test book title changes.
    */
-  public function testPolicyTitle(AcceptanceTester $I){
+  public function testPolicyTitle(AcceptanceTester $I) {
     $title = $this->faker->words(4, TRUE) . ' foo bar';
     $I->logInWithRole('administrator');
     $I->amOnPage('/node/add/stanford_policy');
@@ -81,6 +89,8 @@ class PolicyCest {
 
   /**
    * Test the path auto settings.
+   *
+   * @group menu_link_weight
    */
   public function testPolicyPathAuto(AcceptanceTester $I) {
     $title = $this->faker->words(4, TRUE) . ' foo bar';
@@ -129,7 +139,7 @@ class PolicyCest {
     $I->amOnPage($node->toUrl('edit-form')->toString());
     $I->checkOption('Provide a menu link');
     $I->fillField('Menu link title', $node->label());
-    $I->selectOption('Parent link', '-- ' . $parent_page->label());
+    $I->selectOption('Parent item', 'main:menu_link_field:node_field_menulink_' . $parent_page->uuid() . '_und');
     $I->click('Change parent (update list of weights)');
     $I->click('Save');
 
@@ -150,6 +160,8 @@ class PolicyCest {
 
   /**
    * Test the hierarchy of the book.
+   *
+   * @group menu_link_weight
    */
   public function testPolicyHeirarcy(AcceptanceTester $I) {
     $I->logInWithRole('administrator');
@@ -210,11 +222,11 @@ class PolicyCest {
     $I->fillField('Authority', $authority);
     $I->selectOption('Book', $book->label());
     $I->click('Change book (update list of parents)');
-    $I->selectOption('Parent item', '-- 2. ' . $chapter_two->label());
+    $I->selectOption('book[pid]', '-- 2. ' . $chapter_two->label());
     $I->click('Change book (update list of parents)');
 
-    $I->click('Add new change log');
-    $I->canSeeInField('[name="su_policy_changelog[form][0][title][0][value]"]', $data_formatter->format($time, 'custom', 'Y-m-d', self::getTimezone()));
+    $I->click('Add new policy log');
+    $I->fillField('[name="su_policy_changelog[form][0][su_policy_title][0][value]"]', $data_formatter->format($time, 'custom', 'Y-m-d', self::getTimezone()));
     $I->canSeeInField('[name="su_policy_changelog[form][0][su_policy_date][0][value][date]"]', $data_formatter->format($time, 'custom', 'Y-m-d', self::getTimezone()));
     $change_notes = $this->faker->sentences(3, TRUE);
     $I->fillField('Notes', $change_notes);
@@ -227,7 +239,7 @@ class PolicyCest {
     $I->canSee($chapter_two->label(), '.breadcrumb');
     $I->canSee($article_one->label(), '.breadcrumb');
 
-    $I->canSee( $data_formatter->format($fifteen_days_ago, 'custom', 'F d, Y', self::getTimezone()));
+    $I->canSee($data_formatter->format($fifteen_days_ago, 'custom', 'F d, Y', self::getTimezone()));
     $I->canSee($data_formatter->format($time, 'custom', 'F d, Y', self::getTimezone()));
     $I->canSee($authority);
 
