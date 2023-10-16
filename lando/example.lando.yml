@@ -2,11 +2,13 @@ name: casbsgryphon
 recipe: drupal9
 config:
   webroot: docroot
-  php: '8.1'
+  php: "8.1"
   xdebug: false
 proxy:
   appserver:
     - casbs.lndo.site
+  adminer:
+    - adminer.casbs.lndo.site
 services:
   appserver:
     build_as_root:
@@ -20,37 +22,42 @@ services:
     config:
       php: lando/php.ini
     # Uncomment the below for behat testing
-    # overrides:
-    #   environment:
-    #       BEHAT_PARAMS: >-
-    #         {
-    #           "extensions" : {
-    #             "Behat\\MinkExtension" : {
-    #               "base_url" : "https://appserver/"
-    #             }
-    #           }
-    #         }
+      overrides:
+        environment:
+          MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chromedriver:4444"]'
+          BEHAT_PARAMS: >-
+            {
+              "extensions" : {
+                "Behat\\MinkExtension" : {
+                  "base_url" : "http://soegryphon.lndo.site/"
+                }
+              }
+            }
   database:
     creds:
       user: drupal
       password: drupal
       database: drupal
+  adminer:
+    type: compose
+    services:
+      image: dehy/adminer
+      command: /bin/s6-svscan /etc/services.d
+    portforward: true
   # Uncomment the below for behat testing.
-  # chromedriver:
-  #   type: compose
-  #   services:
-  #     image: robcherry/docker-chromedriver:latest
-  #     expose:
-  #       - "4444"
-  #     environment:
-  #       CHROMEDRIVER_WHITELISTED_IPS: ""
-  #       CHROMEDRIVER_URL_BASE: "/wd/hub"
-  #     security_opt:
-  #       - seccomp:unconfined
-  #     command: ["/usr/local/bin/supervisord", "-c", "/etc/supervisord.conf"]
-  # testresults:
-  #   type: nginx
-  #   webroot: artifacts
+  chromedriver:
+    type: lando
+    api: 3
+    ssl: false
+    sslExpose: false
+    services:
+      user: root
+      image: selenium/standalone-chrome:115.0
+      command: /opt/bin/entry_point.sh
+      volumes:
+        - /dev/shm:/dev/shm
+      ports:
+        - 4444
 tooling:
   blt:
     service: appserver
