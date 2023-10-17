@@ -21,18 +21,17 @@ class RedirectImportCest {
    */
   public function testRedirectImports(FunctionalTester $I) {
 
-    $file = fopen(codecept_data_dir('redirects.csv'), 'w+');
-    fputcsv($file, ['source', 'destination', 'language', 'status_code']);
-    fputcsv($file, ['/foo', '/bar', 'und', 301]);
+    $file = fopen(codecept_data_dir('/redirects.csv'), 'w+');
+    fputcsv($file, ['from', 'to']);
+    fputcsv($file, ['/foo', '/bar']);
     fclose($file);
 
     $I->logInWithRole('site_manager');
-    $I->amOnPage('/admin/config/search/redirect/migrate');
+    $I->amOnPage('/admin/config/search/redirect/import');
     $I->attachFile('CSV File', 'redirects.csv');
-    $I->waitForElementVisible('.form-managed-file input[type="submit"]', 10);
-
-    $I->click('Migrate data');
-    $I->waitForText('Processed 1 item');
+    $I->checkOption('Allow nonexistent paths to be imported');
+    $I->click('Import', '.redirect-import-form');
+    $I->waitForText('Redirects processed');
     $I->amOnPage('/admin/config/search/redirect');
     $I->canSee('/foo');
     $I->amOnPage('/foo');

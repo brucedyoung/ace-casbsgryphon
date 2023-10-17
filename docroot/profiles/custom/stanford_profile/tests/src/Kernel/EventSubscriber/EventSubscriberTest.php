@@ -87,7 +87,11 @@ class EventSubscriberTest extends KernelTestBase {
    * Test the consumer secret is randomized.
    */
   public function testConsumerSecretRandomized() {
-    $this->assertContains('onContentImport', StanfordEventSubscriber::getSubscribedEvents());
+    $expected = [
+      'default_content.import' => 'onContentImport',
+      'hook_event_dispatcher.entity.presave' => 'preSaveEntity',
+    ];
+    $this->assertEquals($expected, StanfordEventSubscriber::getSubscribedEvents());
     $consumer = Consumer::create([
       'client_id' => 'foobar',
       'label' => 'foobar',
@@ -101,7 +105,10 @@ class EventSubscriberTest extends KernelTestBase {
     $this->assertNotEquals($secret, $consumer->get('secret')->getString());
   }
 
-  public function testContentImportEntity() {
+  public function testPresaveEntity() {
+    global $install_state;
+    $install_state['installation_finished'] = [];
+
     $file = File::create(['uri' => 'public://foobar.jpg']);
     $file->save();
 
@@ -112,8 +119,8 @@ class EventSubscriberTest extends KernelTestBase {
       'bundle' => 'image',
       'field_media_image' => ['target_id' => $file->id()],
     ]);
-    $event = new ImportEvent([$media], 'foobar');
-    $this->eventSubscriber->onContentImport($event);
+    $event = new EntityPresaveEvent($media);
+    $this->eventSubscriber->preSaveEntity($event);
 
     $this->assertFileExists('public://foobar.jpg');
   }

@@ -51,7 +51,6 @@ $settings['field_encrypt.use_eval_for_entity_hooks'] = FALSE;
       'menu_link',
     ];
   }
-}
 
 // Block the bots when not on production.
 if (!EnvironmentDetector::isAhProdEnv()) {

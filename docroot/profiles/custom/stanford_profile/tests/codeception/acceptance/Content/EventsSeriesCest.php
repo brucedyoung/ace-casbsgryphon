@@ -63,9 +63,9 @@ class EventsSeriesCest {
   public function testContributorPerms(AcceptanceTester $I) {
     $I->logInWithRole('contributor');
 
-    // D8CORE-4551: Can NOT create a node.
+    // Can create a node.
     $I->amOnPage('/node/add/stanford_event_series');
-    $I->canSeeResponseCodeIs(403);
+    $I->canSeeResponseCodeIs(200);
 
     // Can not delete a node that is not theirs but can edit.
     $node = $this->createEventSeriesNode($I);

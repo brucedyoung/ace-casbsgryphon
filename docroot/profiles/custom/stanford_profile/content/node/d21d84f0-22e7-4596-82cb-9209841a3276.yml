@@ -34,14 +34,6 @@ default:
       alias: /about
       langcode: en
       pathauto: 1
-  field_menulink:
-    -
-      menu_name: main
-      title: About
-      description: ''
-      parent: ''
-      weight: -47
-      expanded: 0
   su_page_components:
     -
       entity:

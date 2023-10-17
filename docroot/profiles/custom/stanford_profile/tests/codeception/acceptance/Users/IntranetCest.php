@@ -5,7 +5,6 @@
  *
  * @group users
  * @group no-parallel
- * @group intranet
  */
 class IntranetCest {
 
@@ -58,7 +57,6 @@ class IntranetCest {
     $I->canSeeResponseCodeIsBetween(301, 403);
     $I->canSeeNumberOfElements('.su-multi-menu__menu a', 0);
 
-    $I->startFollowingRedirects();
     $I->logInWithRole('authenticated');
     $I->amOnPage('/');
     $I->canSeeResponseCodeIsSuccessful();
@@ -96,11 +94,11 @@ class IntranetCest {
     $page_url = $I->grabFromCurrentUrl();
     $I->amOnPage('/user/logout');
 
-    // Anonymous users will get redirected to the login page.
+    // Anonymous users will get denied access.
     $I->amOnPage($page_url);
-    $I->canSeeInCurrentUrl('/user/login?destination=' . $page_url);
+    $I->canSeeResponseCodeIs(403);
 
-    // Logged in staff will be denied access.
+    // Staff will be denied access.
     $I->logInWithRole('stanford_staff');
     $I->amOnPage($page_url);
     $I->canSeeResponseCodeIs(403);
@@ -151,11 +149,9 @@ class IntranetCest {
   public function testMediaAccess(AcceptanceTester $I) {
     $I->runDrush('sset stanford_intranet 1');
     $I->runDrush('sset stanford_intranet.allow_file_uploads 1');
-
     $I->logInWithRole('site_manager');
     $I->amOnPage('/media/add/file');
     $I->canSeeResponseCodeIs(200);
-    $I->amOnPage('/user/logout');
 
     $I->runDrush('sset stanford_intranet.allow_file_uploads 0');
     $I->logInWithRole('site_manager');

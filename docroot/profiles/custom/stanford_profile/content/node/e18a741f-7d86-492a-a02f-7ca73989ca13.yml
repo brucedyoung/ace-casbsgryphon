@@ -34,14 +34,6 @@ default:
       alias: /research
       langcode: en
       pathauto: 1
-  field_menulink:
-    -
-      menu_name: main
-      title: Research
-      description: ''
-      parent: ''
-      weight: -49
-      expanded: 0
   su_page_components:
     -
       entity:
