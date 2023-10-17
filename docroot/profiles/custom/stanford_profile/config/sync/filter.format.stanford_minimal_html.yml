@@ -44,36 +44,6 @@ filters:
     settings:
       tablesaw_type: stack
       tablesaw_persist: '1'
-  filter_html_image_secure:
-    id: filter_html_image_secure
-    provider: filter
-    status: false
-    weight: -37
-    settings: {  }
-  filter_html_escape:
-    id: filter_html_escape
-    provider: filter
-    status: false
-    weight: -41
-    settings: {  }
-  filter_mathjax:
-    id: filter_mathjax
-    provider: mathjax
-    status: false
-    weight: -46
-    settings: {  }
-  stanford_media_embed_markup:
-    id: stanford_media_embed_markup
-    provider: stanford_media
-    status: false
-    weight: -38
-    settings: {  }
-  su_clean_html:
-    id: su_clean_html
-    provider: stanford_profile_helper
-    status: true
-    weight: -47
-    settings: {  }
   editor_file_reference:
     id: editor_file_reference
     provider: editor
@@ -93,6 +63,18 @@ filters:
     weight: -40
     settings:
       filter_url_length: 72
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: -37
+    settings: {  }
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -41
+    settings: {  }
   filter_autop:
     id: filter_autop
     provider: filter
@@ -105,6 +87,12 @@ filters:
     status: false
     weight: -42
     settings: {  }
+  filter_mathjax:
+    id: filter_mathjax
+    provider: mathjax
+    status: false
+    weight: -46
+    settings: {  }
   media_embed:
     id: media_embed
     provider: media
@@ -114,3 +102,15 @@ filters:
       default_view_mode: default
       allowed_view_modes: {  }
       allowed_media_types: {  }
+  stanford_media_embed_markup:
+    id: stanford_media_embed_markup
+    provider: stanford_media
+    status: false
+    weight: -38
+    settings: {  }
+  su_clean_html:
+    id: su_clean_html
+    provider: stanford_profile_helper
+    status: true
+    weight: -47
+    settings: {  }

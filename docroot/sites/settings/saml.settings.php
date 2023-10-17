@@ -15,10 +15,12 @@ $config['stanford_ssp.settings'] = [
 ];
 
 // Always show local login when not on Acquia.
-if (!EnvironmentDetector::isAhEnv()) {
+//if (!EnvironmentDetector::isAhEnv()) {
+
+// CASBS specific - they use basic_auth for API access
   $config['stanford_ssp.settings']['hide_local_login'] = FALSE;
   $config['stanford_samlauth.settings']['hide_local_login'] = FALSE;
-}
+//}
 
 // Remove this when simplesamlphp is removed.
 $config['simplesamlphp_auth.settings'] = [
