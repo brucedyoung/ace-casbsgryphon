@@ -363,6 +363,13 @@ function stanford_profile_update_9100(&$sandbox) {
  * Install menu_link module and configure the field.
  */
 function stanford_profile_update_9101() {
+  try {
+    \Drupal::service('theme_installer')->install(['stanford_profile_admin']);
+  }
+  catch (\Exception $e) {
+    // Theme is already uninstalled.
+  }
+
   $entity_type_manager = \Drupal::entityTypeManager();
 
   \Drupal::service('module_installer')->install(['menu_link']);
