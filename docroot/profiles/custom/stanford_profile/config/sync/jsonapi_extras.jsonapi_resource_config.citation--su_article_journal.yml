@@ -4,6 +4,11 @@ status: true
 dependencies:
   config:
     - stanford_publication.citation_type.su_article_journal
+  module:
+    - jsonapi_defaults
+third_party_settings:
+  jsonapi_defaults:
+    page_limit: 50
 id: citation--su_article_journal
 disabled: false
 path: citation/su_article_journal
@@ -97,6 +102,12 @@ resourceFields:
     disabled: false
     fieldName: su_issue
     publicName: su_issue
+    enhancer:
+      id: ''
+  su_journal_publisher:
+    disabled: false
+    fieldName: su_journal_publisher
+    publicName: su_journal_publisher
     enhancer:
       id: ''
   su_month:

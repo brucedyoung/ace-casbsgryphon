@@ -198,6 +198,12 @@ resourceFields:
     publicName: stanford_intranet__access
     enhancer:
       id: ''
+  su_metatags:
+    disabled: true
+    fieldName: su_metatags
+    publicName: su_metatags
+    enhancer:
+      id: ''
   su_publication_author_ref:
     disabled: false
     fieldName: su_publication_author_ref

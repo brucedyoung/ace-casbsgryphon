@@ -189,7 +189,7 @@ third_party_settings:
                 third_party_settings:
                   field_formatter_class:
                     class: su-person-name
-            weight: 2
+            weight: 1
             additional: {  }
           e0a82a15-455a-4d3b-99f8-446122b1d302:
             uuid: e0a82a15-455a-4d3b-99f8-446122b1d302
@@ -201,6 +201,50 @@ third_party_settings:
               provider: jumpstart_ui
               context_mapping: {  }
             weight: -10
+            additional: {  }
+          65beb11f-8040-4951-8ad7-90e28d5a566a:
+            uuid: 65beb11f-8040-4951-8ad7-90e28d5a566a
+            region: quote_long_title
+            configuration:
+              id: 'field_block:node:stanford_person:su_person_full_title'
+              label: 'Full Title'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: basic_string
+                label: hidden
+                settings: {  }
+                third_party_settings:
+                  field_formatter_class:
+                    class: su-person-full-title
+            weight: 0
+            additional: {  }
+          4aa9941a-d5a0-4640-80b8-4f47de956405:
+            uuid: 4aa9941a-d5a0-4640-80b8-4f47de956405
+            region: quote_media
+            configuration:
+              id: 'field_block:node:stanford_person:su_person_photo'
+              label: Photo
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: media_image_formatter
+                label: hidden
+                settings:
+                  view_mode: default
+                  link: false
+                  image_style: medium_square
+                  remove_alt: true
+                third_party_settings:
+                  field_formatter_class:
+                    class: su-person-photo
+            weight: 0
             additional: {  }
           9e6e76d4-b758-4c2b-97a7-495f43965c3a:
             uuid: 9e6e76d4-b758-4c2b-97a7-495f43965c3a
@@ -624,6 +668,27 @@ third_party_settings:
                     class: su-person-location-name
             weight: 6
             additional: {  }
+          8222e428-abc1-40e2-9309-e6ca03530c1f:
+            uuid: 8222e428-abc1-40e2-9309-e6ca03530c1f
+            region: right
+            configuration:
+              id: 'field_block:node:stanford_person:su_person_mail_code'
+              label: 'Mail Code'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings:
+                  field_formatter_class:
+                    class: su-person-mail-code
+            weight: 5
+            additional: {  }
           0cff0fa4-edcc-4bae-93bf-865242051b35:
             uuid: 0cff0fa4-edcc-4bae-93bf-865242051b35
             region: right
@@ -779,6 +844,26 @@ third_party_settings:
                     ds_limit: ''
             weight: 2
             additional: {  }
+          42f48ce2-9cfb-442c-9c7a-55a63ddf63e4:
+            uuid: 42f48ce2-9cfb-442c-9c7a-55a63ddf63e4
+            region: main
+            configuration:
+              id: 'field_block:node:stanford_person:body'
+              label: Body
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings:
+                  field_formatter_class:
+                    class: su-person-body
+            weight: 0
+            additional: {  }
           cc3fd331-6cc8-4988-88ed-2312832a2e19:
             uuid: cc3fd331-6cc8-4988-88ed-2312832a2e19
             region: main
@@ -853,13 +938,13 @@ third_party_settings:
   layout_builder_restrictions:
     allowed_block_categories:
       - 'Basic Page Type Lists (Views)'
-      - Book
-      - 'Changelog (Views)'
       - 'Chaos Tools'
       - 'Config Pages'
       - 'Content fields'
       - 'Custom block types'
       - 'Custom blocks'
+      - Devel
+      - 'Devel PHP'
       - 'Events Lists (Views)'
       - Forms
       - Help
@@ -870,8 +955,6 @@ third_party_settings:
       - 'News Lists (Views)'
       - 'PDB React'
       - 'People Lists (Views)'
-      - 'Policy (Views)'
-      - Printable
       - 'Publication (Views)'
       - React
       - 'SimpleSAMLphp Authentication'
@@ -927,43 +1010,38 @@ third_party_settings:
           - 'field_block:user:user:name'
           - 'field_block:user:user:preferred_admin_langcode'
           - 'field_block:user:user:preferred_langcode'
-          - 'field_block:user:user:roles'
           - 'field_block:user:user:role_change'
+          - 'field_block:user:user:roles'
           - 'extra_field_block:user:user:search_api_excerpt'
           - 'field_block:user:user:timezone'
           - 'field_block:user:user:uid'
           - 'field_block:user:user:status'
       allowlisted_blocks:
         Menus:
-          - 'menu_block:stanford-event-types'
           - 'system_menu_block:stanford-event-types'
-          - 'menu_block:main'
+          - 'menu_block:stanford-event-types'
           - 'system_menu_block:main'
+          - 'menu_block:main'
           - 'menu_block:stanford-person-type'
           - 'system_menu_block:stanford-person-type'
           - 'menu_block:stanford-publication-topics'
           - 'system_menu_block:stanford-publication-topics'
-          - 'menu_block:news-topics'
           - 'system_menu_block:news-topics'
+          - 'menu_block:news-topics'
         System:
           - system_breadcrumb_block
         core:
           - page_title_block
       restricted_categories:
-        - Book
-        - 'Changelog (Views)'
         - 'Chaos Tools'
         - 'Config Pages'
         - Forms
         - Help
         - 'Lists (Views)'
-        - 'Policy (Views)'
-        - Printable
         - React
         - 'SimpleSAMLphp Authentication'
         - 'Stanford Profile Helper'
         - 'Stanford SimpleSAML PHP'
-        - 'Taxonomy Terms (Views)'
         - Views
   layout_library:
     enable: false
@@ -1296,6 +1374,7 @@ content:
     weight: 126
     region: content
 hidden:
+  field_menulink: true
   layout_builder__layout: true
   search_api_excerpt: true
   stanford_intranet__access: true

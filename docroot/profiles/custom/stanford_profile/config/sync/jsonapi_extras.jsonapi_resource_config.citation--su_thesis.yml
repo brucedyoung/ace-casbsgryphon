@@ -4,6 +4,11 @@ status: true
 dependencies:
   config:
     - stanford_publication.citation_type.su_thesis
+  module:
+    - jsonapi_defaults
+third_party_settings:
+  jsonapi_defaults:
+    page_limit: 50
 id: citation--su_thesis
 disabled: false
 path: citation/su_thesis
