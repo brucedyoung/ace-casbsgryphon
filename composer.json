@@ -33,10 +33,12 @@
         "drupal/conditional_fields": "^4.0",
         "drupal/config_filter": "^2.0",
         "drupal/config_ignore": "^3.0",
+        "drupal/config_merge": "^1.0",
         "drupal/config_pages": "^2.6",
         "drupal/config_pages_overrides": "^2.0",
         "drupal/config_readonly": "^1.0@beta",
         "drupal/config_split": "^2.0",
+        "drupal/config_update": "^1.7",
         "drupal/confirm_leave": "^1.0@beta",
         "drupal/content_lock": "^2.2",
         "drupal/core": "9.5.11",
@@ -141,6 +143,7 @@
         "sainsburys/guzzle-oauth2-plugin": "^3.0",
         "seboettg/citeproc-php": "2.4.1",
         "simplesamlphp/simplesamlphp": "^1.19",
+        "su-sws/ckeditor5_plugins": "^1.0",
         "su-sws/drupal-patches": "^8.1",
         "su-sws/react_paragraphs": "^8.2",
         "su-sws/stanford_actions": "^8.2",
@@ -296,28 +299,28 @@
             "drupal/google_tag": {
                 "Comment out GA conflict in Google Tag": "patches/contrib/google_tag-ga_conflict.patch"
             }
-        },
-        "scripts": {
-            "init-stack": [
-                "vendor/bin/blt blt:telemetry:disable --no-interaction",
-                "vendor/bin/blt blt:init:settings",
-                "vendor/bin/blt sws:keys",
-                "vendor/bin/blt source:build:simplesamlphp-config",
-                "vendor/bin/blt drupal:install -n"
-            ],
-            "local-install": [
-                "composer update --no-interaction",
-                "cp lando/example.local.blt.yml blt/local.blt.yml",
-                "blt blt:init:settings",
-                "blt source:build:simplesamlphp-config"
-            ],
-            "post-drupal-scaffold-cmd": [
-                "patch -Ns -r \"\" --no-backup-if-mismatch -p1 < ./patches/htaccess.patch"
-            ],
-            "sync-casbs": [
-                "drush -y sql:sync @default.prod @default.local",
-                "drush -y rsync @default.prod:%files @default.local:%files"
-            ]
         }
+    },
+    "scripts": {
+        "init-stack": [
+            "vendor/bin/blt blt:telemetry:disable --no-interaction",
+            "vendor/bin/blt blt:init:settings",
+            "vendor/bin/blt sws:keys",
+            "vendor/bin/blt source:build:simplesamlphp-config",
+            "vendor/bin/blt drupal:install -n"
+        ],
+        "local-install": [
+            "composer update --no-interaction",
+            "cp lando/example.local.blt.yml blt/local.blt.yml",
+            "blt blt:init:settings",
+            "blt source:build:simplesamlphp-config"
+        ],
+        "post-drupal-scaffold-cmd": [
+            "patch -Ns -r \"\" --no-backup-if-mismatch -p1 < ./patches/htaccess.patch"
+        ],
+        "sync-casbs": [
+            "drush -y sql:sync @default.prod @default.local",
+            "drush -y rsync @default.prod:%files @default.local:%files"
+        ]
     }
 }
