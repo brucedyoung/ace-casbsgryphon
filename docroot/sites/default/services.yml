@@ -171,4 +171,4 @@ parameters:
     # Sets the Access-Control-Max-Age header.
     maxAge: 1728000
     # Sets the Access-Control-Allow-Credentials header.
-    supportsCredentials: true
+    supportsCredentials: false

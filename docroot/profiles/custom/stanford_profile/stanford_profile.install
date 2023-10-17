@@ -367,7 +367,7 @@ function stanford_profile_update_9101() {
     \Drupal::service('theme_installer')->install(['stanford_profile_admin']);
   }
   catch (\Exception $e) {
-    // Theme is already uninstalled.
+    // Theme is already installed.
   }
 
   $entity_type_manager = \Drupal::entityTypeManager();
@@ -486,9 +486,10 @@ function _stanford_profile_fix_menu(array $menu_items = [], string $parent = NUL
         $node_id = $link->getUrlObject()->getRouteParameters()['node'] ?? NULL;
         /** @var \Drupal\node\NodeInterface $node */
         $node = $node_storage->load($node_id);
-        if (!$node->get('field_menulink')->isEmpty()) {
-          throw new \Exception('Menu link already exists on node ' . $node->label());
-        }
+
+        //if (!$node->get('field_menulink')->isEmpty()) {
+        //  throw new \Exception('Menu link already exists on node ' . $node->label());
+        //}
 
         $menu_field_data = [
           'menu_name' => $link->getMenuName(),
