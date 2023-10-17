@@ -1,0 +1,18 @@
+uuid: 1a182c46-9960-4927-b30c-3f97f99914b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - responsive_tables_filter
+name: 'No processing'
+format: no_processing
+weight: 0
+filters:
+  filter_responsive_tables_filter:
+    id: filter_responsive_tables_filter
+    provider: responsive_tables_filter
+    status: false
+    weight: 0
+    settings:
+      tablesaw_type: stack
+      tablesaw_persist: '1'

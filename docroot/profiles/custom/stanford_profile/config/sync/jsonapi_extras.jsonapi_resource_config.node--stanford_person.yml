@@ -191,12 +191,6 @@ resourceFields:
       id: nested
       settings:
         path: processed
-  field_menulink:
-    disabled: true
-    fieldName: field_menulink
-    publicName: field_menulink
-    enhancer:
-      id: ''
   layout_builder__layout:
     disabled: true
     fieldName: layout_builder__layout

@@ -11,7 +11,6 @@ dependencies:
     - core.entity_view_display.node.stanford_policy.default
     - core.entity_view_display.node.stanford_publication.default
     - filter.format.stanford_html
-    - filter.format.stanford_minimal_html
     - media.type.embeddable
     - media.type.file
     - media.type.google_form
@@ -316,7 +315,6 @@ permissions:
   - 'update any stanford_component_block block content'
   - 'update media'
   - 'use text format stanford_html'
-  - 'use text format stanford_minimal_html'
   - 'use views bulk edit'
   - 'view all media revisions'
   - 'view all revisions'

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - filter.format.stanford_html
-    - filter.format.stanford_minimal_html
     - media.type.embeddable
     - media.type.file
     - media.type.google_form
@@ -116,7 +115,6 @@ permissions:
   - 'update any media'
   - 'update media'
   - 'use text format stanford_html'
-  - 'use text format stanford_minimal_html'
   - 'view all revisions'
   - 'view any unpublished stanford_course content'
   - 'view any unpublished stanford_event content'

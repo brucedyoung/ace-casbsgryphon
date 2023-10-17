@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - filter.format.stanford_html
-    - filter.format.stanford_minimal_html
     - media.type.embeddable
     - media.type.file
     - media.type.google_form
@@ -112,6 +111,10 @@ permissions:
   - 'create terms in basic_page_types'
   - 'create terms in event_audience'
   - 'create terms in media_tags'
+  - 'create terms in media_tags'
+  - 'create terms in media_tags'
+  - 'create terms in media_tags'
+  - 'create terms in media_tags'
   - 'create terms in stanford_event_types'
   - 'create terms in stanford_news_topics'
   - 'create terms in stanford_person_types'
@@ -161,6 +164,10 @@ permissions:
   - 'delete stanford_publication revisions'
   - 'delete terms in basic_page_types'
   - 'delete terms in event_audience'
+  - 'delete terms in media_tags'
+  - 'delete terms in media_tags'
+  - 'delete terms in media_tags'
+  - 'delete terms in media_tags'
   - 'delete terms in media_tags'
   - 'delete terms in stanford_event_types'
   - 'delete terms in stanford_news_topics'
@@ -213,6 +220,10 @@ permissions:
   - 'edit terms in basic_page_types'
   - 'edit terms in event_audience'
   - 'edit terms in media_tags'
+  - 'edit terms in media_tags'
+  - 'edit terms in media_tags'
+  - 'edit terms in media_tags'
+  - 'edit terms in media_tags'
   - 'edit terms in stanford_event_types'
   - 'edit terms in stanford_news_topics'
   - 'edit terms in stanford_person_types'
@@ -239,7 +250,6 @@ permissions:
   - 'update any stanford_component_block block content'
   - 'update media'
   - 'use text format stanford_html'
-  - 'use text format stanford_minimal_html'
   - 'use views bulk edit'
   - 'view all media revisions'
   - 'view all revisions'
@@ -254,7 +264,3 @@ permissions:
   - 'view any unpublished stanford_publication content'
   - 'view editoria11y checker'
   - 'view scheduled content'
-  - 'view stanford_policy revisions'
-  - 'view stanford_publication revisions'
-  - 'view the administration theme'
-  - 'view unpublished paragraphs'

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.stanford_policy.body
-    - field.field.node.stanford_policy.field_menulink
     - field.field.node.stanford_policy.layout_builder__layout
     - field.field.node.stanford_policy.su_policy_authority
     - field.field.node.stanford_policy.su_policy_auto_prefix
@@ -418,7 +417,6 @@ mode: default
 content: {  }
 hidden:
   body: true
-  field_menulink: true
   layout_builder__layout: true
   links: true
   search_api_excerpt: true

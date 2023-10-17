@@ -15,7 +15,6 @@ dependencies:
     - core.entity_view_display.taxonomy_term.stanford_person_types.default
     - core.entity_view_display.taxonomy_term.stanford_publication_topics.default
     - filter.format.stanford_html
-    - filter.format.stanford_minimal_html
   module:
     - filter
     - layout_builder
@@ -37,4 +36,3 @@ permissions:
   - 'configure editable stanford_publication_topics taxonomy_term layout overrides'
   - 'create and edit custom blocks'
   - 'use text format stanford_html'
-  - 'use text format stanford_minimal_html'

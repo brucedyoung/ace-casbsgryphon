@@ -4,13 +4,13 @@ status: true
 dependencies:
   config:
     - filter.format.stanford_html
-    - filter.format.stanford_minimal_html
     - media.type.embeddable
     - media.type.file
     - media.type.google_form
     - media.type.image
     - media.type.stanford_gallery_images
     - media.type.video
+    - node.type.datatables_data
     - node.type.stanford_course
     - node.type.stanford_event
     - node.type.stanford_event_series
@@ -197,7 +197,6 @@ permissions:
   - 'update any media'
   - 'update media'
   - 'use text format stanford_html'
-  - 'use text format stanford_minimal_html'
   - 'use views bulk edit'
   - 'view all media revisions'
   - 'view all revisions'
