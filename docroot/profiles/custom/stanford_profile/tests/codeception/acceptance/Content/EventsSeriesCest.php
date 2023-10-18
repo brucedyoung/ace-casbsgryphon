@@ -40,7 +40,7 @@ class EventsSeriesCest {
     $I->logInWithRole('administrator');
     // Todo: make theme name dynamic.
     $I->amOnPage('/admin/structure/block/manage/stanford_basic_pagetitle');
-    $values = $I->grabTextFrom('#edit-visibility-request-path-pages');
+    $values = $I->grabValueFrom('#edit-visibility-request-path-pages');
     if (is_string($values)) {
       $values = explode("\n", $values);
     }
@@ -63,9 +63,9 @@ class EventsSeriesCest {
   public function testContributorPerms(AcceptanceTester $I) {
     $I->logInWithRole('contributor');
 
-    // Can create a node.
+    // D8CORE-4551: Can NOT create a node.
     $I->amOnPage('/node/add/stanford_event_series');
-    $I->canSeeResponseCodeIs(200);
+    $I->canSeeResponseCodeIs(403);
 
     // Can not delete a node that is not theirs but can edit.
     $node = $this->createEventSeriesNode($I);

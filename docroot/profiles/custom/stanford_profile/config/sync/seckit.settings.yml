@@ -10,7 +10,6 @@ seckit_xss:
     default-src: ''
     script-src: ''
     object-src: ''
-    style-src: ''
     img-src: ''
     media-src: ''
     frame-src: ''

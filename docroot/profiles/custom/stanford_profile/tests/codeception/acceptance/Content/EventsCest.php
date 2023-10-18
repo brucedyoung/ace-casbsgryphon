@@ -87,12 +87,8 @@ class EventsCest {
     $I->amOnPage($event->toUrl('delete-form')->toString());
     $I->click('Delete');
 
-    $I->amOnPage('/events');
-    $I->cantSee($event->label());
-    $I->cantSee('No events at this time');
-    $I->canSee($message);
-
     $I->amOnPage($term->toUrl()->toString());
+    $I->canSee($term->label(), 'h1');
     $I->cantSee($event->label());
     $I->cantSee('No events at this time');
     $I->canSee($message);
@@ -115,7 +111,7 @@ class EventsCest {
     $I->logInWithRole('administrator');
     // Todo: make theme name dynamic.
     $I->amOnPage('/admin/structure/block/manage/stanford_basic_pagetitle');
-    $values = $I->grabTextFrom('#edit-visibility-request-path-pages');
+    $values = $I->grabValueFrom('#edit-visibility-request-path-pages');
     if (is_string($values)) {
       $values = explode("\n", $values);
     }
@@ -324,7 +320,7 @@ class EventsCest {
     $I->checkOption('tr:contains("' . $node->label() . '") input[name^="views_bulk_operations_bulk_form"]');
     $I->selectOption('Action', 'Clone selected content');
     $I->click('Apply to selected items');
-    $I->selectOption('Clone how many times', 2);
+    $I->selectOption('Clone how many times', '2');
     $I->selectOption('Increment Amount', '3');
     $I->selectOption('Units', 'Month');
     $I->click('Apply');

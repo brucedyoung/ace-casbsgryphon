@@ -91,6 +91,11 @@ admin:
     base:
       dist/css/admin.css: {  }
 
+decoupled_menu:
+  version: VERSION
+  js:
+    decoupled-menu/dist/islands/main-menu.island.umd.js: { minified: true }
+
 basic:
   version: VERSION
   css:
@@ -109,9 +114,6 @@ basic:
     dist/js/base.js: { scope: footer }
     dist/js/behaviors.js: { scope: footer }
   dependencies:
-    - classy/base
-    - classy/messages
-    - classy/progress
     - core/drupal
     - core/jquery
     - core/once

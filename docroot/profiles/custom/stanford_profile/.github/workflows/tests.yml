@@ -28,7 +28,7 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         run: |
-          composer global require su-sws/stanford-caravan:dev-8.x-3.x
+          composer global require su-sws/stanford-caravan:10.x-dev
           ~/.composer/vendor/bin/sws-caravan phpunit /var/www/html --extension-dir=$GITHUB_WORKSPACE/project --with-coverage
       - name: Save Test Results
         uses: actions/upload-artifact@v3
@@ -63,8 +63,10 @@ jobs:
         with:
           path: project
       - name: Run tests
+        env:
+          STANFORD_ENCRYPT: ${{ secrets.STANFORD_ENCRYPT }}
         run: |
-          composer global require su-sws/stanford-caravan:dev-8.x-3.x
+          composer global require su-sws/stanford-caravan:10.x-dev
           ~/.composer/vendor/bin/sws-caravan codeception /var/www/html --extension-dir=$GITHUB_WORKSPACE/project --suites=acceptance
       - name: Save Test Results
         uses: actions/upload-artifact@v3
@@ -85,7 +87,7 @@ jobs:
       options: '--network-alias=drupal8ci'
     services:
       selenium:
-        image: selenium/standalone-chrome
+        image: selenium/standalone-chrome:115.0
         options: '--shm-size="2g"'
       mysql:
         image: mysql:5.7
@@ -102,8 +104,10 @@ jobs:
         with:
           path: project
       - name: Run tests
+        env:
+          STANFORD_ENCRYPT: ${{ secrets.STANFORD_ENCRYPT }}=
         run: |
-          composer global require su-sws/stanford-caravan:dev-8.x-3.x
+          composer global require su-sws/stanford-caravan:10.x-dev
           ~/.composer/vendor/bin/sws-caravan codeception /var/www/html --extension-dir=$GITHUB_WORKSPACE/project --suites=functional
       - name: Save Test Results
         uses: actions/upload-artifact@v3

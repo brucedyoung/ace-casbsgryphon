@@ -4,13 +4,13 @@ status: true
 dependencies:
   config:
     - filter.format.stanford_html
+    - filter.format.stanford_minimal_html
     - media.type.embeddable
     - media.type.file
     - media.type.google_form
     - media.type.image
     - media.type.stanford_gallery_images
     - media.type.video
-    - node.type.datatables_data
     - node.type.stanford_course
     - node.type.stanford_event
     - node.type.stanford_event_series
@@ -33,6 +33,7 @@ dependencies:
     - dropzonejs
     - editoria11y
     - field_permissions
+    - file
     - filter
     - media
     - menu_admin_per_menu
@@ -109,6 +110,7 @@ permissions:
   - 'delete media'
   - 'delete own embeddable media'
   - 'delete own file media'
+  - 'delete own files'
   - 'delete own google_form media'
   - 'delete own image media'
   - 'delete own stanford_course content'
@@ -139,7 +141,6 @@ permissions:
   - 'delete terms in stanford_publication_topics'
   - 'delete terms in su_shared_tags'
   - 'dropzone upload files'
-  - 'edit any datatables_data content'
   - 'edit any embeddable media'
   - 'edit any file media'
   - 'edit any google_form media'
@@ -184,7 +185,6 @@ permissions:
   - 'mark as hidden in editoria11y'
   - 'mark as ok in editoria11y'
   - 'notify of path changes'
-  - 'revert datatables_data revisions'
   - 'revert stanford_course revisions'
   - 'revert stanford_event revisions'
   - 'revert stanford_event_series revisions'
@@ -197,6 +197,7 @@ permissions:
   - 'update any media'
   - 'update media'
   - 'use text format stanford_html'
+  - 'use text format stanford_minimal_html'
   - 'use views bulk edit'
   - 'view all media revisions'
   - 'view all revisions'

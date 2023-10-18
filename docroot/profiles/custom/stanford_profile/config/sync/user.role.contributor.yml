@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.stanford_html
+    - filter.format.stanford_minimal_html
     - media.type.embeddable
     - media.type.file
     - media.type.google_form
@@ -23,6 +24,7 @@ dependencies:
     - content_lock
     - dropzonejs
     - editoria11y
+    - file
     - filter
     - media
     - node
@@ -64,6 +66,7 @@ permissions:
   - 'delete citation entities'
   - 'delete media'
   - 'delete own file media'
+  - 'delete own files'
   - 'delete own google_form media'
   - 'delete own image media'
   - 'delete own stanford_course content'
@@ -115,6 +118,7 @@ permissions:
   - 'update any media'
   - 'update media'
   - 'use text format stanford_html'
+  - 'use text format stanford_minimal_html'
   - 'view all revisions'
   - 'view any unpublished stanford_course content'
   - 'view any unpublished stanford_event content'

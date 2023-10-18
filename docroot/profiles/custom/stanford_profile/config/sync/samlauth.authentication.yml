@@ -55,7 +55,7 @@ create_users: true
 sync_name: false
 sync_mail: false
 user_name_attribute: ''
-user_mail_attribute: mail
+user_mail_attribute: eduPersonPrincipalName
 request_set_name_id_policy: true
 strict: true
 security_metadata_sign: false

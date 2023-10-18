@@ -104,7 +104,7 @@ class PersonCest {
     $I->amOnPage('/admin/config/search/xmlsitemap/settings');
     $I->see('Person');
     $I->amOnPage('/admin/config/search/xmlsitemap/settings/node/stanford_person');
-    $I->selectOption('#edit-xmlsitemap-status', 1);
+    $I->selectOption('#edit-xmlsitemap-status', '1');
 
     // Metatags.
     $I->amOnPage('/admin/config/search/metatag/node__stanford_person');
@@ -151,8 +151,6 @@ class PersonCest {
    * @group 4704
    */
   public function testD8Core2613Terms(AcceptanceTester $I) {
-    $I->logInWithRole('site_manager');
-
     $term1 = $I->createEntity([
       'name' => $this->faker->words(2, TRUE),
       'vid' => 'stanford_person_types',
@@ -166,25 +164,26 @@ class PersonCest {
       'vid' => 'stanford_person_types',
       'parent' => ['target_id' => $term1->id()],
     ], 'taxonomy_term');
-    $I->amOnPage($term3->toUrl('edit-form')->toString());
-    $I->click('Save');
-    $I->canSee('Updated term');
 
     $I->amOnPage($term3->toUrl()->toString());
     $I->canSeeLink($term1->label());
     $I->canSeeLink($term2->label());
     $I->cantSeeLink($term3->label());
 
+    $I->logInWithRole('site_manager');
     $I->amOnPage($term3->toUrl('edit-form')->toString());
     $I->selectOption('Parent term', '<root>');
     $I->click('Save');
+    $I->amOnPage('/user/logout');
 
     $I->amOnPage('/people');
     $I->canSeeLink($term3->label());
 
+    $I->logInWithRole('site_manager');
     $I->amOnPage($term3->toUrl('edit-form')->toString());
     $I->selectOption('Parent term', $term2->label());
     $I->click('Save');
+    $I->amOnPage('/user/logout');
 
     $I->amOnPage('/people');
     $I->cantSeeLink($term3->label());
@@ -339,6 +338,32 @@ class PersonCest {
     $I->assertEquals($values['image_alt'], $I->grabAttributeFrom('meta[name="twitter:image:alt"]', 'content'), 'Metadata "twitter:image:alt" should match.');
     $I->assertEquals($values['body'], $I->grabAttributeFrom('meta[name="twitter:description"]', 'content'), 'Metadata "twitter:description" should match.');
     $I->assertEquals($values['profile_link'], $I->grabAttributeFrom('link[rel="canonical"]', 'href'), 'Metadata "canonical" should match.');
+  }
+
+  /**
+   * Deleting the taxonomy term doesn't break the form.
+   */
+  public function testDeletedTerm(AcceptanceTester $I){
+    $term = $I->createEntity([
+      'name' => $this->faker->words(2, TRUE),
+      'vid' => 'stanford_person_types',
+    ], 'taxonomy_term');
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $I->createEntity([
+      'type' => 'stanford_person',
+      'su_person_short_title' => $this->faker->title,
+      'su_person_first_name' => $this->faker->firstName,
+      'su_person_last_name' => $this->faker->lastName,
+      'su_person_type_group' => $term->id(),
+    ]);
+    $term->delete();
+
+    $I->logInWithRole('site_manager');
+    $I->amOnPage($node->toUrl('edit-form')->toString());
+    $I->click('Save');
+
+    $I->canSeeInCurrentUrl($node->toUrl()->toString());
+    $I->canSee($node->label(), 'h1');
   }
 
 }

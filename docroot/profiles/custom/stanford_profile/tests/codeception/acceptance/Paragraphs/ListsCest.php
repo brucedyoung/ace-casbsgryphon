@@ -6,6 +6,7 @@ use Faker\Factory;
  * Class ListsCest.
  *
  * @group paragraphs
+ * @group lists
  */
 class ListsCest {
 
@@ -102,15 +103,15 @@ class ListsCest {
 
     $I->logInWithRole('contributor');
     $I->amOnPage($basic_page->toUrl('edit-form')->toString());
-    $I->canSeeOptionIsSelected('Shared Tags', $shared_tag->label());
+    $I->canSeeOptionIsSelected('Shared Tags (value 1)', $shared_tag->label());
     $I->amOnPage($news->toUrl('edit-form')->toString());
-    $I->canSeeOptionIsSelected('Shared Tags', $shared_tag->label());
+    $I->canSeeOptionIsSelected('Shared Tags (value 1)', $shared_tag->label());
     $I->amOnPage($event->toUrl('edit-form')->toString());
-    $I->canSeeOptionIsSelected('Shared Tags', $shared_tag->label());
+    $I->canSeeOptionIsSelected('Shared Tags (value 1)', $shared_tag->label());
     $I->amOnPage($person->toUrl('edit-form')->toString());
-    $I->canSeeOptionIsSelected('Shared Tags', $shared_tag->label());
+    $I->canSeeOptionIsSelected('Shared Tags (value 1)', $shared_tag->label());
     $I->amOnPage($publication->toUrl('edit-form')->toString());
-    $I->canSeeOptionIsSelected('Shared Tags', $shared_tag->label());
+    $I->canSeeOptionIsSelected('Shared Tags (value 1)', $shared_tag->label());
   }
 
   /**
