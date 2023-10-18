@@ -6,7 +6,6 @@ die() { yell "$*"; exit 111; }
 try() { "$@" || die "cannot $*"; }
 
 yell "Setting up your site using lando."
-
 try cp lando/example.env .env
 try cp lando/example.lando.yml .lando.yml
 try cp lando/example.local.blt.yml blt/local.blt.yml

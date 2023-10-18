@@ -11,6 +11,7 @@ proxy:
     - adminer.casbs.lndo.site
 services:
   appserver:
+    composer_version: 2-latest
     build_as_root:
       - pecl install pcov
       - docker-php-ext-enable pcov
@@ -62,6 +63,9 @@ tooling:
   blt:
     service: appserver
     cmd: /app/vendor/bin/blt
+  composer:
+    service: appserver
+    cmd: /usr/local/bin/composer
   git:
     service: appserver
   phpcs:

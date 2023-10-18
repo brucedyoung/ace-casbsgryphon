@@ -29,22 +29,6 @@ class CardinalSitesCommands extends BltTasks {
   protected $acsfKey;
 
   /**
-   * @hook pre-command drupal:update
-   */
-  public function preDrupalUpdate() {
-    if (EnvironmentDetector::isAhEnv()) {
-      $this->taskDrush()
-        ->drush('config:set')
-        ->arg('simplesamlphp_auth.settings')
-        ->arg('activate')
-        ->arg('0')
-        ->drush('sql:query')
-        ->arg('truncate sessions')
-        ->run();
-    }
-  }
-
-  /**
    * Sync down testing data from amptesting.
    *
    * @command cardinalsites:site-sync

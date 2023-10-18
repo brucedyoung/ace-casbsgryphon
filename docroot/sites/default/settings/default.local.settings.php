@@ -6,28 +6,20 @@
  */
 
 use Acquia\Blt\Robo\Common\EnvironmentDetector;
-use Drupal\Component\Assertion\Handle;
 
 $db_name = '${drupal.db.database}';
 
 /**
  * Database configuration.
  */
-$databases = [
-  'default' =>
-  [
-    'default' =>
-    [
-      'database' => $db_name,
-      'username' => '${drupal.db.username}',
-      'password' => '${drupal.db.password}',
-      'host' => '${drupal.db.host}',
-      'port' => '${drupal.db.port}',
-      'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-      'driver' => 'mysql',
-      'prefix' => '',
-    ],
-  ],
+$databases['default']['default'] = [
+  'database' => $db_name,
+  'username' => '${drupal.db.username}',
+  'password' => '${drupal.db.password}',
+  'host' => '${drupal.db.host}',
+  'port' => '${drupal.db.port}',
+  'driver' => 'mysql',
+  'prefix' => '',
 ];
 
 // Use development service parameters.
@@ -55,7 +47,7 @@ $settings['update_free_access'] = TRUE;
  * @see https://wiki.php.net/rfc/expectations
  */
 assert_options(ASSERT_ACTIVE, TRUE);
-Handle::register();
+assert_options(ASSERT_EXCEPTION, TRUE);
 
 /**
  * Show all error messages, with backtrace information.
@@ -145,7 +137,7 @@ $settings['file_private_path'] = EnvironmentDetector::getRepoRoot() . '/files-pr
 /**
  * Site path.
  *
- * @var $site_path
+ * @var string $site_path
  * This is always set and exposed by the Drupal Kernel.
  */
 // phpcs:ignore

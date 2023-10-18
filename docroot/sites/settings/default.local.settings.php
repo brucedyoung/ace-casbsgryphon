@@ -24,5 +24,10 @@ error_reporting(E_ALL & ~E_DEPRECATED);
 
 // Saml login doesn't work on gitpod or tugboat, don't set config values.
 if (getenv('GITPOD_WORKSPACE_URL') || getenv('TUGBOAT_REPO')) {
-  unset($config['samlauth.authentication'], $config['stanford_samlauth.settings']);
+  unset($config['samlauth.authentication']);
+
+  $config['stanford_samlauth.settings'] = [
+    'hide_local_login' => FALSE,
+    'local_login_fieldset_open' => true,
+  ];
 }

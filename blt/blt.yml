@@ -3,7 +3,7 @@ project:
   human_name: 'Stanford CASBS'
   profile:
     name: stanford_profile
-  local: {  }
+  local: {}
 git:
   default_branch: 2.x
   remotes:
@@ -15,7 +15,10 @@ deploy:
   gitignore_file: '${repo.root}/blt/deploy/.gitignore'
 drush:
   aliases:
+    remote: '${project.machine_name}.test'
+    local: self
     ci: self
+    prod: '${project.machine_name}.prod'
   default_alias: '${drush.aliases.local}'
 modules:
   local:
@@ -39,7 +42,7 @@ modules:
       - environment_indicator
       - memcache
       - memcache_admin
-      
+
     uninstall: {  }
   test:
     enable:
@@ -73,27 +76,22 @@ tests:
   reports:
     localDir: '${repo.root}/artifacts'
     coveragePass: 90
-  phpunit:
-    -
-      path: '${docroot}'
-      config: '${docroot}/core/phpunit.xml'
-      directory: '${docroot}/modules/custom'
-      bootstrap: '${docroot}/core/tests/bootstrap.php'
-      filter: /(Unit|Kernel)/
   codeception:
-    cardinal_service:
+    stanford_profile:
       suites:
         - acceptance
         - functional
       directory: ${docroot}/profiles/custom/stanford_profile/tests/codeception
+  phpunit:
+    - # Run all tests in the custom module & profile directory.
+      config: ${docroot}/core/phpunit.xml
+      bootstrap: ${docroot}/core/tests/bootstrap.php
+      testsuite: stanford
+      filter: '/(Unit|Kernel)/'
 validate:
   twig:
-    functions:
-      - drupal_block
-      - drupal_field
-      - pattern
-    filters:
-      - render_clean
+    functions: [drupal_block, drupal_field, pattern]
+    filters: [render_clean]
 cloud:
   appId: f195d4d2-7ed4-428a-abc0-a630c9a70e23
 keys_rsync:
