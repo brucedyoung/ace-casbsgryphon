@@ -129,15 +129,15 @@ filters:
     settings:
       tablesaw_type: stack
       tablesaw_persist: '1'
-  su_clean_html:
-    id: su_clean_html
-    provider: stanford_profile_helper
-    status: true
-    weight: -40
-    settings: {  }
   filter_image_lazy_load:
     id: filter_image_lazy_load
     provider: filter
     status: true
     weight: -41
+    settings: {  }
+  su_clean_html:
+    id: su_clean_html
+    provider: stanford_profile_helper
+    status: true
+    weight: -40
     settings: {  }

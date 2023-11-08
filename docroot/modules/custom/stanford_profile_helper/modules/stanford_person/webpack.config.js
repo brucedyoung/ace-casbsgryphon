@@ -1,214 +1,95 @@
-/**
- * Webpack Configuration File
- * @type {[type]}
- */
 
-// /////////////////////////////////////////////////////////////////////////////
-// Requires / Dependencies /////////////////////////////////////////////////////
-// /////////////////////////////////////////////////////////////////////////////
-
-const path =                      require('path');
-const webpack =                   require('webpack');
-const autoprefixer =              require('autoprefixer');
-const FileManagerPlugin =         require('filemanager-webpack-plugin');
-const UglifyJsPlugin =            require("uglifyjs-webpack-plugin");
-const MiniCssExtractPlugin =      require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin =   require("optimize-css-assets-webpack-plugin");
-const WebpackAssetsManifest =     require("webpack-assets-manifest");
-const ExtraWatchWebpackPlugin =   require("extra-watch-webpack-plugin");
+const path = require("path");
+const glob = require('glob')
+const Webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const FileManagerPlugin = require('filemanager-webpack-plugin');
+const autoprefixer = require('autoprefixer')({ grid: true });
 
-// /////////////////////////////////////////////////////////////////////////////
-// Paths ///////////////////////////////////////////////////////////////////////
-// /////////////////////////////////////////////////////////////////////////////
+const config = {
+  isProd: process.env.NODE_ENV === "production",
+  hmrEnabled: process.env.NODE_ENV !== "production" && !process.env.NO_HMR,
+  distFolder: path.resolve(__dirname, "./dist/css"),
+  wdsPort: 3001,
+};
 
-const npmPackage = path.resolve(__dirname, 'node_modules');
-const srcDir = path.resolve(__dirname, "lib");
-const distDir = path.resolve(__dirname, "dist");
-const srcSass = path.resolve(srcDir, 'scss');
-const distSass = path.resolve(distDir, 'css');
-const srcJS = path.resolve(srcDir, 'js');
-const distJS = path.resolve(distDir, 'js');
-
-// /////////////////////////////////////////////////////////////////////////////
-// Functions ///////////////////////////////////////////////////////////////////
-// /////////////////////////////////////////////////////////////////////////////
-
-// /////////////////////////////////////////////////////////////////////////////
-// Config //////////////////////////////////////////////////////////////////////
-// /////////////////////////////////////////////////////////////////////////////
-
-// Start configuring webpack.
 var webpackConfig = {
-  // What am i?
-  name: 'stanford_person',
-  // Allows for map files.
-  devtool: 'source-map',
-  // What build?
   entry: {
-    "stanford_person.script": path.resolve(srcJS, "stanford_person.js"),
-    "stanford_person.node":   path.resolve(srcSass, "stanford_person.node.scss"),
-    "stanford_person.views":  path.resolve(srcSass, "stanford_person.views.scss"),
+    "stanford_person.node":   path.resolve("lib/scss/stanford_person.node.scss"),
+    "stanford_person.views":  path.resolve("lib/scss/stanford_person.views.scss"),
   },
-  // Where put build?
   output: {
-    filename: "[name].js",
-    path: distJS
+    path: config.distFolder,
+    filename: '[name].js',
+    assetModuleFilename: '../assets/[name][ext][query]'
   },
-  // Additional module rules.
+  mode: config.isProd ? "production" : "development",
+  resolve: {
+    alias: {
+      'decanter-assets': path.resolve('node_modules', 'decanter/core/src/img'),
+      'decanter-src': path.resolve('node_modules', 'decanter/core/src'),
+      '@fortawesome': path.resolve('node_modules', '@fortawesome'),
+      'fa-fonts': path.resolve('node_modules', '@fortawesome/fontawesome-free/webfonts')
+    }
+  },
   module: {
     rules: [
-      // Drupal behaviors need special handling with webpack.
-      // https://www.npmjs.com/package/drupal-behaviors-loader
       {
-        test: /\.behavior.js$/,
-        exclude: /node_modules/,
-        options: {
-          enableHmr: false
+        test: /\.m?js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
         },
-        loader: 'drupal-behaviors-loader'
       },
-      // Good ol' Babel.
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['@babel/preset-env']
-        }
-      },
-      // Apply Plugins to SCSS/SASS files.
-      {
-        test: /\.s[ac]ss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          // Extract loader.
-          MiniCssExtractPlugin.loader,
-          // CSS Loader. Generate sourceMaps.
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              url: true
-            }
-          },
-          // Post CSS. Run autoprefixer plugin.
+          config.isProd ? { loader: MiniCssExtractPlugin.loader } : 'style-loader',
+          {loader:'css-loader', options: {}},
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true,
-              plugins: () => [
-                autoprefixer({ grid: true })
-              ]
+              postcssOptions: {
+                sourceMap: true,
+                plugins: [autoprefixer],
+              },
             }
           },
-          // SASS Loader. Add compile paths to include bourbon.
-          {
-            loader: 'sass-loader',
-            options: {
-              includePaths: [
-                npmPackage,
-                srcSass,
-              ],
-              sourceMap: true,
-              lineNumbers: true,
-              outputStyle: 'nested',
-              precision: 10
-            }
-          }
+          {loader:'sass-loader', options: {}}
         ]
       },
-      // Apply plugin to font assets.
       {
-        test: /\.(woff2?|ttf|otf|eot)$/,
-        loader: 'file-loader',
-        options: {
-          name: "[name].[ext]",
-          publicPath: "../assets/fonts",
-          outputPath: "../assets/fonts"
-        }
-      },
-      // Apply plugins to image assets.
-      {
-        test: /\.(png|jpg|gif)$/i,
-        use: [
-          // A loader for webpack which transforms files into base64 URIs.
-          // https://github.com/webpack-contrib/url-loader
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              publicPath: "../assets/img",
-              outputPath: "../assets/img"
-            }
-          }
-        ]
-      },
-      // Apply plugins to svg assets.
-      {
-        test: /\.(svg)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              publicPath: "../assets/svg",
-              outputPath: "../assets/svg"
-            }
-          }
-        ]
-      },
+        test: /\.(png|jpg|gif|svg)$/i,
+        type: "asset"
+      }
     ]
   },
-  // Build optimizations.
-  optimization: {
-    // Uglify the Javascript & and CSS.
-    minimizer: [
-      // Shrink JS.
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true
-      }),
-      // Shrink CSS.
-      new OptimizeCSSAssetsPlugin({})
-    ],
-  },
-  // Plugin configuration.
   plugins: [
-    // Remove JS files from render.
     new FixStyleOnlyEntriesPlugin(),
-    // Output css files.
     new MiniCssExtractPlugin({
-      filename:  "../css/[name].css"
+      filename: '[name].css',
     }),
-    // A webpack plugin to manage files before or after the build.
-    // https://www.npmjs.com/package/filemanager-webpack-plugin
     new FileManagerPlugin({
-      onStart: {
-        delete: [distDir]
+      events: {
+        onStart: {
+          delete: ['dist'],
+        },
       },
-      // onEnd: {
-        // copy: [
-          // {
-          //   source: npmPackage + "/decanter/core/src/templates/**/*.twig",
-          //   destination: distDir + "/templates/decanter/"
-          // },
-          // {
-          //   source: srcDir + "/assets/**/*",
-          //   destination: distDir + "/assets/"
-          // }
-        // ],
-      // },
     }),
-    // Add a plugin to watch other files other than that required by webpack.
-    // https://www.npmjs.com/package/filewatcher-webpack-plugin
-    new ExtraWatchWebpackPlugin( {
-      files: [
-        srcDir + '/**/*.twig',
-        srcDir + '/**/*.json'
-      ]
-    }),
-  ]
+  ],
+  optimization: {
+    minimizer: [
+      new OptimizeCSSAssetsPlugin(),
+    ]
+  }
 };
 
-// Add the configuration.
-module.exports = [ webpackConfig ];
+if (config.hmrEnabled) {
+  webpackConfig.plugins.push(new Webpack.HotModuleReplacementPlugin());
+}
+module.exports = webpackConfig;
