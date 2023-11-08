@@ -1,7 +1,62 @@
 # Stanford Profile
 
-10.1.2
+11.0.8
 -------------------------------------------------------------------------------
+- D8CORE-7066 Adjust site contact fields & language (#741)
+- Update contact field labels
+- Adjusted access denied message
+- Added the anchor for contact details on site settings
+
+11.0.7
+-------------------------------------------------------------------------------
+- Invalidate cache tag when saving site contact details
+- Allow figure and figcaption in embeddables
+
+11.0.6
+-------------------------------------------------------------------------------
+- Fixed event day display with timezones.
+
+11.0.4
+-------------------------------------------------------------------------------
+- D8CORE-7051 Use display field copy instead of token fields
+
+11.0.3
+-------------------------------------------------------------------------------
+- Next site settings and config ignores (#735)
+- D8CORE-7040 Fix source ending tags
+
+11.0.2
+-------------------------------------------------------------------------------
+- Fix acceptance tests.
+
+11.0.1
+-------------------------------------------------------------------------------
+- Fix site setting redirect logic
+
+11.0.0
+-------------------------------------------------------------------------------
+- Use h2 heading for global message
+- D8CORE-6976: updated to newest decanter (#730)
+- Update config ignore settings for latest module (#729)
+- Update local footer config userguide links (#727)
+- Added and configured autoprefixer for css compiler
+- Updated search api config
+- Fixed related policies to avoid self referencing
+- SDSS-1007: Add support for global footer variant. (#724)
+- Added su-masthead-inner class to masthead <section>. (#725)
+- D8CORE-6895: updates for new Decanter and updating webpack (#710)
+- D8CORE-6951  D10 Clean up admin toolbar (#723)
+- D8CORE-6952: changed to list style none (#719)
+- D8CORE-6953: Additional edits to the editing buttons (#722)
+- Display field copy released a D10 version
+- Lifecycle management contact fields
+- D8CORE-6953: fixes to local task tabs (#720)
+- D8CORE-6977 Switch to use CSHS instead of simple heiracry select (#721)
+- D8CORE-6984 include policy content in sitemap
+- D8CORE-3718 Minor a11y issues for decoupled main menu
+- Updated user mail attribute value for samlauth
+- Drupal 10 Config & test updates (#705)
+- D10 Install
 
 10.1.1
 -------------------------------------------------------------------------------

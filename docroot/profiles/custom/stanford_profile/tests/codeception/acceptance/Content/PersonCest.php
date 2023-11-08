@@ -165,6 +165,7 @@ class PersonCest {
       'parent' => ['target_id' => $term1->id()],
     ], 'taxonomy_term');
 
+    $I->runDrush('cache:rebuild');
     $I->amOnPage($term3->toUrl()->toString());
     $I->canSeeLink($term1->label());
     $I->canSeeLink($term2->label());
@@ -343,7 +344,7 @@ class PersonCest {
   /**
    * Deleting the taxonomy term doesn't break the form.
    */
-  public function testDeletedTerm(AcceptanceTester $I){
+  public function testDeletedTerm(AcceptanceTester $I) {
     $term = $I->createEntity([
       'name' => $this->faker->words(2, TRUE),
       'vid' => 'stanford_person_types',
