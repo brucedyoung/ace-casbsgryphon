@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.base_field_override.node.stanford_person.title
     - field.field.node.stanford_person.body
+    - field.field.node.stanford_person.field_menulink
     - field.field.node.stanford_person.layout_builder__layout
     - field.field.node.stanford_person.stanford_intranet__access
     - field.field.node.stanford_person.su_casbs_cs_year
@@ -305,12 +306,10 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: entity_reference_list_label_class
+                type: entity_reference_label
                 label: hidden
                 settings:
                   link: false
-                  class: ''
-                  list_type: ul
                 third_party_settings:
                   empty_fields:
                     handler: ''
@@ -330,12 +329,10 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: entity_reference_list_label_class
+                type: entity_reference_label
                 label: hidden
                 settings:
                   link: false
-                  class: ''
-                  list_type: ul
                 third_party_settings:
                   empty_fields:
                     handler: ''
@@ -355,12 +352,10 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: entity_reference_list_label_class
+                type: entity_reference_label
                 label: hidden
                 settings:
                   link: false
-                  class: ''
-                  list_type: ul
                 third_party_settings:
                   empty_fields:
                     handler: ''
@@ -380,12 +375,10 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: entity_reference_list_label_class
+                type: entity_reference_label
                 label: hidden
                 settings:
                   link: false
-                  class: ''
-                  list_type: ul
                 third_party_settings:
                   empty_fields:
                     handler: ''
@@ -405,12 +398,10 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: entity_reference_list_label_class
+                type: entity_reference_label
                 label: hidden
                 settings:
                   link: false
-                  class: ''
-                  list_type: ul
                 third_party_settings:
                   empty_fields:
                     handler: ''
@@ -506,23 +497,6 @@ third_party_settings:
                   field_formatter_class:
                     class: ''
             weight: 1
-            additional: {  }
-          27ccdffb-36e3-4297-9a1c-9a93b0c8e60a:
-            uuid: 27ccdffb-36e3-4297-9a1c-9a93b0c8e60a
-            region: content
-            configuration:
-              id: 'field_block:node:stanford_person:su_casbs_custom_order'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: number_integer
-                label: above
-                settings:
-                  thousand_separator: ''
-                  prefix_suffix: true
-                third_party_settings: {  }
-            weight: 4
             additional: {  }
         third_party_settings: {  }
       -
@@ -853,8 +827,6 @@ third_party_settings:
   layout_builder_restrictions:
     allowed_block_categories:
       - 'Basic Page Type Lists (Views)'
-      - Book
-      - 'Changelog (Views)'
       - 'Chaos Tools'
       - 'Config Pages'
       - 'Content fields'
@@ -870,8 +842,6 @@ third_party_settings:
       - 'News Lists (Views)'
       - 'PDB React'
       - 'People Lists (Views)'
-      - 'Policy (Views)'
-      - Printable
       - 'Publication (Views)'
       - React
       - 'SimpleSAMLphp Authentication'
@@ -879,7 +849,6 @@ third_party_settings:
       - 'Stanford Profile Helper'
       - 'Stanford SimpleSAML PHP'
       - System
-      - 'Taxonomy Terms (Views)'
       - Views
       - core
     entity_view_mode_restriction:
@@ -935,16 +904,16 @@ third_party_settings:
           - 'field_block:user:user:status'
       allowlisted_blocks:
         Menus:
-          - 'menu_block:stanford-event-types'
           - 'system_menu_block:stanford-event-types'
-          - 'menu_block:main'
+          - 'menu_block:stanford-event-types'
           - 'system_menu_block:main'
+          - 'menu_block:main'
           - 'menu_block:stanford-person-type'
           - 'system_menu_block:stanford-person-type'
           - 'menu_block:stanford-publication-topics'
           - 'system_menu_block:stanford-publication-topics'
-          - 'menu_block:news-topics'
           - 'system_menu_block:news-topics'
+          - 'menu_block:news-topics'
         System:
           - system_breadcrumb_block
         core:
@@ -1296,6 +1265,7 @@ content:
     weight: 126
     region: content
 hidden:
+  field_menulink: true
   layout_builder__layout: true
   search_api_excerpt: true
   stanford_intranet__access: true
